@@ -5,18 +5,17 @@ Roomblr allows tumblr users to join a group that populates a post feed by aggreg
 
 ## User Stories
 
-- This is a basic visual guide for what the app should sorta look like. It will be similar to the twitter client and Instagram apps .
-- A user needs to login with Tumblr OAuth. When a user logs in we will make an API request for their likes.
-- Then we can use the tags as the searchTerms to use in the mobile/search endpoint. 
-- When we get data back we need to filter down to posts that are of type text. (we can probably make a bonus for other types)
-- We should have all data needed for the user status on that post (has the user liked/reblogged already, but it shouldn't be)
-- Finally we put the post on the tableView and save to Parse.
+- As a user, I want to see the text posts that share the same tags with the posts that I've liked so that it's more likely to show me something that I'm interested in.
+- As a user, I want to see the text posts that other people have liked in the same room so that I can see what are the things that they are interested in and what is trending.
+- As a user, I want to be able to login into this app through Tumblr OAuth so that I don't need to create another account.
+- As a user, I want this app to have simple and modern UI like twitter and instagram.
+- As a user, I want to be able to perform basic social interactions including creating new post, liking a post and reblogging a post.
+- As a user, I want to see both a dashboard listing all the posts and a detail view of a specific post, so that I can dive into one post that I'm particularly interested in.
+- As a user, I want to see the status of a post including liked/reblogged status.
 
-- The rest of the screens are basically the same as the twitter client (login, new post, and post detail).
+#### Bonus
 
-- Because we dont have a sophisticated server we have to handle stuff on the client (the fetching of likes and piping it to search).
-- When another user logs in they will see all the posts already :) .
-- Data is pulled from Parse and shown when you navigate to the tableView. 
-- We can store teh currentUser on the app.
+- As a user, I want the app to support other types of posts other than text posts.
+- As a user, I want to be able to whitelist/blacklist tags so that I can avoid seeing posts I don't like on my dashboard.
 
 
