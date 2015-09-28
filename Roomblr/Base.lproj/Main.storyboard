@@ -3,6 +3,7 @@
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="8154"/>
+        <capability name="Navigation items with more than one left or right bar item" minToolsVersion="7.0"/>
     </dependencies>
     <scenes>
         <!--View Controller-->
@@ -121,7 +122,7 @@
         <!--Group-->
         <scene sceneID="GKi-m9-bUK">
             <objects>
-                <viewController id="BgL-f7-7vm" sceneMemberID="viewController">
+                <viewController id="BgL-f7-7vm" customClass="GroupViewController" customModule="Roomblr" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="3zO-Gf-U2K"/>
                         <viewControllerLayoutGuide type="bottom" id="9Ba-eR-ZVm"/>
@@ -194,11 +195,18 @@
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
                     <navigationItem key="navigationItem" title="Group" id="k8F-E5-3fV">
-                        <barButtonItem key="leftBarButtonItem" title="Roommates" id="Umj-um-ZyG">
-                            <connections>
-                                <segue destination="3wY-R2-RxY" kind="push" id="w6A-Sz-hos"/>
-                            </connections>
-                        </barButtonItem>
+                        <leftBarButtonItems>
+                            <barButtonItem title="Group" id="Umj-um-ZyG">
+                                <connections>
+                                    <segue destination="3wY-R2-RxY" kind="push" id="w6A-Sz-hos"/>
+                                </connections>
+                            </barButtonItem>
+                            <barButtonItem title="Logout" id="jtp-ex-Ldd">
+                                <connections>
+                                    <action selector="onLogout:" destination="BgL-f7-7vm" id="cIk-1s-A1K"/>
+                                </connections>
+                            </barButtonItem>
+                        </leftBarButtonItems>
                         <barButtonItem key="rightBarButtonItem" title="New Post" id="fmk-z6-A50">
                             <connections>
                                 <segue destination="3u8-jD-aUe" kind="push" id="q30-3j-am6"/>
@@ -324,7 +332,7 @@
                     <navigationItem key="navigationItem" id="Pzf-oM-rld">
                         <barButtonItem key="rightBarButtonItem" style="plain" id="VKy-8D-RnZ">
                             <button key="customView" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="xEv-Ee-ZLm">
-                                <rect key="frame" x="-23" y="-15" width="71" height="30"/>
+                                <rect key="frame" x="233" y="7" width="71" height="30"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <state key="normal" title="Post">
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>

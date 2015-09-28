@@ -16,12 +16,19 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
 
     func application(application: UIApplication, didFinishLaunchingWithOptions launchOptions: [NSObject: AnyObject]?) -> Bool {
+         NSNotificationCenter.defaultCenter().addObserver(self, selector: "userDidLogout", name: userDidLogoutNotification, object: nil)
         if User.currentUser != nil {
             // go to loggedin screen
             var vc = storyboard.instantiateViewControllerWithIdentifier("GroupNavController") as! UINavigationController
             window?.rootViewController = vc
         }
         return true
+    }
+    
+    
+    func userDidLogout() {
+        var vc = storyboard.instantiateInitialViewController()
+        window?.rootViewController = vc
     }
 
     func applicationWillResignActive(application: UIApplication) {
