@@ -20,6 +20,17 @@ class ViewController: UIViewController {
         // Dispose of any resources that can be recreated.
     }
 
+    @IBAction func onLogin(sender: AnyObject) {
+        TumblrClient.sharedInstance.loginWithCompletion(){
+            (user: User?, err: NSError?) in
+            if (user != nil) {
+                // perform segue
+                self.performSegueWithIdentifier("loginSegue", sender: self)
+            } else {
+                // display err
+            }
+        }
+    }
 
 }
 

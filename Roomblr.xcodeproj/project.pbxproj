@@ -7,13 +7,16 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		17D115995B730F5BE8BF5393 /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 4A2A6BBF3032BAF0BB7D5DD9 /* libPods.a */; };
 		9376EC101BB397B400289658 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9376EC0F1BB397B400289658 /* AppDelegate.swift */; };
 		9376EC121BB397B400289658 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9376EC111BB397B400289658 /* ViewController.swift */; };
 		9376EC151BB397B400289658 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 9376EC131BB397B400289658 /* Main.storyboard */; };
 		9376EC171BB397B400289658 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 9376EC161BB397B400289658 /* Images.xcassets */; };
 		9376EC1A1BB397B400289658 /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9376EC181BB397B400289658 /* LaunchScreen.xib */; };
 		9376EC261BB397B400289658 /* RoomblrTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9376EC251BB397B400289658 /* RoomblrTests.swift */; };
-		9376EC301BB398E200289658 /* Tumblr_Reblog_Like.png in Resources */ = {isa = PBXBuildFile; fileRef = 9376EC2F1BB398E200289658 /* Tumblr_Reblog_Like.png */; };
+		B5F7AAD81BB988F200F768D9 /* TumblrClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5F7AAD71BB988F200F768D9 /* TumblrClient.swift */; settings = {ASSET_TAGS = (); }; };
+		B5F7AADB1BB989D500F768D9 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5F7AADA1BB989D500F768D9 /* User.swift */; settings = {ASSET_TAGS = (); }; };
+		B5F7AADE1BB9A1BC00F768D9 /* GroupViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5F7AADD1BB9A1BC00F768D9 /* GroupViewController.swift */; settings = {ASSET_TAGS = (); }; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -27,6 +30,9 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		006CF9782AF26BA418879218 /* Pods.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.release.xcconfig; path = "Pods/Target Support Files/Pods/Pods.release.xcconfig"; sourceTree = "<group>"; };
+		4A2A6BBF3032BAF0BB7D5DD9 /* libPods.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPods.a; sourceTree = BUILT_PRODUCTS_DIR; };
+		807C1E3F53D22F76A2DFC3E1 /* Pods.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.debug.xcconfig; path = "Pods/Target Support Files/Pods/Pods.debug.xcconfig"; sourceTree = "<group>"; };
 		9376EC0A1BB397B400289658 /* Roomblr.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Roomblr.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		9376EC0E1BB397B400289658 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		9376EC0F1BB397B400289658 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -37,7 +43,10 @@
 		9376EC1F1BB397B400289658 /* RoomblrTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = RoomblrTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		9376EC241BB397B400289658 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		9376EC251BB397B400289658 /* RoomblrTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RoomblrTests.swift; sourceTree = "<group>"; };
-		9376EC2F1BB398E200289658 /* Tumblr_Reblog_Like.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = Tumblr_Reblog_Like.png; path = ../../../gifs/Tumblr_Reblog_Like.png; sourceTree = "<group>"; };
+		B5F7AAD41BB9887E00F768D9 /* Roomblr-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "Roomblr-Bridging-Header.h"; sourceTree = "<group>"; };
+		B5F7AAD71BB988F200F768D9 /* TumblrClient.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TumblrClient.swift; sourceTree = "<group>"; };
+		B5F7AADA1BB989D500F768D9 /* User.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
+		B5F7AADD1BB9A1BC00F768D9 /* GroupViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GroupViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -45,6 +54,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				17D115995B730F5BE8BF5393 /* libPods.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -58,12 +68,31 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		6149A2E4B38D4D8307B7FD73 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				807C1E3F53D22F76A2DFC3E1 /* Pods.debug.xcconfig */,
+				006CF9782AF26BA418879218 /* Pods.release.xcconfig */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
+		78FBEDA38E13A9AC26DBC26A /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				4A2A6BBF3032BAF0BB7D5DD9 /* libPods.a */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 		9376EC011BB397B400289658 = {
 			isa = PBXGroup;
 			children = (
 				9376EC0C1BB397B400289658 /* Roomblr */,
 				9376EC221BB397B400289658 /* RoomblrTests */,
 				9376EC0B1BB397B400289658 /* Products */,
+				6149A2E4B38D4D8307B7FD73 /* Pods */,
+				78FBEDA38E13A9AC26DBC26A /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -80,12 +109,14 @@
 			isa = PBXGroup;
 			children = (
 				9376EC0F1BB397B400289658 /* AppDelegate.swift */,
-				9376EC111BB397B400289658 /* ViewController.swift */,
+				B5F7AADC1BB9A19600F768D9 /* Controllers */,
+				B5F7AAD91BB989BE00F768D9 /* Models */,
+				B5F7AACD1BB90A7200F768D9 /* API */,
 				9376EC131BB397B400289658 /* Main.storyboard */,
 				9376EC161BB397B400289658 /* Images.xcassets */,
-				9376EC2F1BB398E200289658 /* Tumblr_Reblog_Like.png */,
 				9376EC181BB397B400289658 /* LaunchScreen.xib */,
 				9376EC0D1BB397B400289658 /* Supporting Files */,
+				B5F7AAD41BB9887E00F768D9 /* Roomblr-Bridging-Header.h */,
 			);
 			path = Roomblr;
 			sourceTree = "<group>";
@@ -115,6 +146,31 @@
 			name = "Supporting Files";
 			sourceTree = "<group>";
 		};
+		B5F7AACD1BB90A7200F768D9 /* API */ = {
+			isa = PBXGroup;
+			children = (
+				B5F7AAD71BB988F200F768D9 /* TumblrClient.swift */,
+			);
+			name = API;
+			sourceTree = "<group>";
+		};
+		B5F7AAD91BB989BE00F768D9 /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				B5F7AADA1BB989D500F768D9 /* User.swift */,
+			);
+			name = Models;
+			sourceTree = "<group>";
+		};
+		B5F7AADC1BB9A19600F768D9 /* Controllers */ = {
+			isa = PBXGroup;
+			children = (
+				9376EC111BB397B400289658 /* ViewController.swift */,
+				B5F7AADD1BB9A1BC00F768D9 /* GroupViewController.swift */,
+			);
+			name = Controllers;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -122,9 +178,11 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 9376EC291BB397B400289658 /* Build configuration list for PBXNativeTarget "Roomblr" */;
 			buildPhases = (
+				48AF987D07CE5B562CD9D9B5 /* Check Pods Manifest.lock */,
 				9376EC061BB397B400289658 /* Sources */,
 				9376EC071BB397B400289658 /* Frameworks */,
 				9376EC081BB397B400289658 /* Resources */,
+				D6E5A2895C53B1D4A754802F /* Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -159,6 +217,7 @@
 		9376EC021BB397B400289658 /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
+				LastSwiftUpdateCheck = 0700;
 				LastUpgradeCheck = 0640;
 				ORGANIZATIONNAME = tumblr;
 				TargetAttributes = {
@@ -196,7 +255,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				9376EC151BB397B400289658 /* Main.storyboard in Resources */,
-				9376EC301BB398E200289658 /* Tumblr_Reblog_Like.png in Resources */,
 				9376EC1A1BB397B400289658 /* LaunchScreen.xib in Resources */,
 				9376EC171BB397B400289658 /* Images.xcassets in Resources */,
 			);
@@ -211,13 +269,49 @@
 		};
 /* End PBXResourcesBuildPhase section */
 
+/* Begin PBXShellScriptBuildPhase section */
+		48AF987D07CE5B562CD9D9B5 /* Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Check Pods Manifest.lock";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
+			showEnvVarsInLog = 0;
+		};
+		D6E5A2895C53B1D4A754802F /* Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods/Pods-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
 /* Begin PBXSourcesBuildPhase section */
 		9376EC061BB397B400289658 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				B5F7AADB1BB989D500F768D9 /* User.swift in Sources */,
 				9376EC121BB397B400289658 /* ViewController.swift in Sources */,
 				9376EC101BB397B400289658 /* AppDelegate.swift in Sources */,
+				B5F7AAD81BB988F200F768D9 /* TumblrClient.swift in Sources */,
+				B5F7AADE1BB9A1BC00F768D9 /* GroupViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -344,21 +438,28 @@
 		};
 		9376EC2A1BB397B400289658 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 807C1E3F53D22F76A2DFC3E1 /* Pods.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CLANG_ENABLE_MODULES = YES;
 				INFOPLIST_FILE = Roomblr/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = "Roomblr/Roomblr-Bridging-Header.h";
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 			};
 			name = Debug;
 		};
 		9376EC2B1BB397B400289658 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 006CF9782AF26BA418879218 /* Pods.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CLANG_ENABLE_MODULES = YES;
 				INFOPLIST_FILE = Roomblr/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = "Roomblr/Roomblr-Bridging-Header.h";
 			};
 			name = Release;
 		};
@@ -415,6 +516,7 @@
 				9376EC2B1BB397B400289658 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		9376EC2C1BB397B400289658 /* Build configuration list for PBXNativeTarget "RoomblrTests" */ = {
 			isa = XCConfigurationList;
@@ -423,6 +525,7 @@
 				9376EC2E1BB397B400289658 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
