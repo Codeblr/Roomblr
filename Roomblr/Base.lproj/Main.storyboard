@@ -62,14 +62,14 @@
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="b2w-HG-U4W">
-                                                    <rect key="frame" x="8" y="8" width="97" height="91.5"/>
+                                                    <rect key="frame" x="8" y="8" width="97" height="92"/>
                                                     <constraints>
                                                         <constraint firstAttribute="height" constant="91.5" id="de9-cB-N8g"/>
                                                         <constraint firstAttribute="width" constant="97" id="rEy-Yt-TMS"/>
                                                     </constraints>
                                                 </imageView>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="UsermanDude" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="5tS-mr-wBp">
-                                                    <rect key="frame" x="110" y="8" width="113" height="20.5"/>
+                                                    <rect key="frame" x="110" y="8" width="113" height="21"/>
                                                     <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="17"/>
                                                     <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                                     <nil key="highlightedColor"/>
@@ -81,13 +81,13 @@
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="10 reblogs" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="1Md-0y-Wul">
-                                                    <rect key="frame" x="110" y="76.5" width="72.5" height="18"/>
+                                                    <rect key="frame" x="110" y="77" width="73" height="18"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="15"/>
                                                     <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="20 likes" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="0d4-aX-Zxs">
-                                                    <rect key="frame" x="110" y="55.5" width="52.5" height="18"/>
+                                                    <rect key="frame" x="110" y="56" width="53" height="18"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="15"/>
                                                     <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                                     <nil key="highlightedColor"/>
@@ -143,7 +143,7 @@
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="v8h-0c-jhA">
-                                                    <rect key="frame" x="8" y="8" width="67" height="62.5"/>
+                                                    <rect key="frame" x="8" y="8" width="67" height="63"/>
                                                     <constraints>
                                                         <constraint firstAttribute="height" constant="62.5" id="lF8-I9-hAu"/>
                                                         <constraint firstAttribute="width" constant="67" id="zao-7I-fct"/>
@@ -168,7 +168,7 @@
                                                     </state>
                                                 </button>
                                                 <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Tumblr_Reblog_Like.png" translatesAutoresizingMaskIntoConstraints="NO" id="Q2q-uq-uX7">
-                                                    <rect key="frame" x="212" y="150" width="67" height="30.5"/>
+                                                    <rect key="frame" x="212" y="150" width="67" height="31"/>
                                                     <constraints>
                                                         <constraint firstAttribute="height" constant="30.5" id="Q0T-zS-qmH"/>
                                                         <constraint firstAttribute="width" constant="67" id="ZXR-KZ-MD1"/>
@@ -231,7 +231,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="From Saving Private Ryan, Interstellar, and now The Martian, America has spent a lot of money trying to retrieve Matt Damon." lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="FL6-oi-dr3">
-                                <rect key="frame" x="8" y="169" width="304" height="81.5"/>
+                                <rect key="frame" x="8" y="169" width="304" height="82"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
@@ -244,7 +244,7 @@
                                 </constraints>
                             </imageView>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Tumblr_Reblog_Like.png" translatesAutoresizingMaskIntoConstraints="NO" id="XNA-Bw-9mI">
-                                <rect key="frame" x="245" y="255" width="67" height="30.5"/>
+                                <rect key="frame" x="245" y="255" width="67" height="31"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="67" id="Imw-oZ-of3"/>
                                     <constraint firstAttribute="height" constant="30.5" id="zbP-Vh-se5"/>

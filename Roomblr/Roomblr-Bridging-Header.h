@@ -4,3 +4,5 @@
 
 #import "BDBOAuth1RequestOperationManager.h"
 #import "UIImageView+AFNetworking.h"
+#import <Parse/Parse.h>
+#import <Parse/PFObject+Subclass.h>

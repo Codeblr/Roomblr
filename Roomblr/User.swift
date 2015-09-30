@@ -15,11 +15,23 @@ let userDidLogoutNotification = "userDidLogoutNotification"
 
 class User: NSObject {
     var name: String?
+    var blogName: String?
     var dic: NSDictionary
+    var parseUser: PFUser?
     
     init(dic: NSDictionary) {
         self.dic = dic
         name = dic["name"] as? String
+        
+        var blogs = (dic["blogs"] as! NSArray) as Array
+        var i = 0
+        for (i; i <= blogs.count; i++) {
+            if (blogs[i]["primary"] as! Bool == true) {
+                blogName = blogs[i]["name"] as? String
+            }
+        }
+        
+        blogName = dic["blog_name"] as? String
     }
     
     class var currentUser: User? {
