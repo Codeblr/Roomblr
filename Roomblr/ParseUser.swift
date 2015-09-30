@@ -8,6 +8,10 @@
 
 import UIKit
 
+/*
+    ParseUser is the current data we will store in Parse
+    Currently we just need to store the blogNames of all users who have used this app
+*/
 
 class ParseUser: PFObject, PFSubclassing {
     override class func initialize() {

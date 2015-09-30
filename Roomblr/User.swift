@@ -17,7 +17,7 @@ class User: NSObject {
     var name: String?
     var blogName: String?
     var dic: NSDictionary
-    var parseUser: PFUser?
+    var pfUser: PFUser?
     
     init(dic: NSDictionary) {
         self.dic = dic
