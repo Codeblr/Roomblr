@@ -34,9 +34,9 @@ class ParseClient {
     func getParseUser(user: User, completition: (parseUser: ParseUser?, error: NSError?) -> ()) {
         var query = PFQuery(className: "ParseUser")
         query.whereKey("blogName", equalTo: user.blogName! as String)
-        
+
         query.findObjectsInBackgroundWithBlock {
-            (objects: [AnyObject]?, error: NSError?) -> Void in
+            (objects: [PFObject]?, error: NSError?) -> Void in
             if error == nil {
                 if let parseUsers = objects as? [ParseUser] {
                     for parseUser in parseUsers {
@@ -48,7 +48,7 @@ class ParseClient {
             }
         }
     }
-    
+
     func saveParseUser(parseUser: ParseUser, completion: (parseUser: ParseUser?, error: NSError?) -> ()) {
         parseUser.saveInBackgroundWithBlock { (succeeded: Bool, error: NSError?) -> Void in
             if succeeded {
