@@ -25,9 +25,9 @@ class User: NSObject {
         
         var blogs = (dic["blogs"] as! NSArray) as Array
         var i = 0
-        for (i; i <= blogs.count; i++) {
-            if (blogs[i]["primary"] as! Bool == true) {
-                blogName = blogs[i]["name"] as? String
+        for (i; i < blogs.count; i++) {
+            if (blogs[i]["primary"] as! Int == 1) {
+                blogName = blogs[i]["name"] as! String
             }
         }
         
