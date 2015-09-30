@@ -29,9 +29,7 @@ class User: NSObject {
             if (blogs[i]["primary"] as! Int == 1) {
                 blogName = blogs[i]["name"] as! String
             }
-        }
-        
-        blogName = dic["blog_name"] as? String
+        }        
     }
     
     class var currentUser: User? {

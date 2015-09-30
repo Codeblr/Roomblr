@@ -49,7 +49,8 @@ class TumblrClient: BDBOAuth1RequestOperationManager {
             // fetch the user info
             TumblrClient.sharedInstance.GET("v2/user/info", parameters: nil, success: { (operation: AFHTTPRequestOperation!, response: AnyObject!) -> Void in
                 print("get user \(response)")
-                var user = User(dic: response as! NSDictionary)
+                let responseObj = response["response"] as! NSDictionary
+                var user = User(dic: responseObj["user"] as! NSDictionary)
                 User.currentUser = user
                 self.loginCompletion?(user: user, err: nil)
                 
