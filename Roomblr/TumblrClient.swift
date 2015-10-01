@@ -66,6 +66,23 @@ class TumblrClient: BDBOAuth1RequestOperationManager {
         })
     }
     
+    func getBlogLikesPosts(blogName: String, completion:(posts: [Post]?, error: NSError?) -> ()) {
+        TumblrClient.sharedInstance.GET("v2/blog/\(blogName).tumblr.com/likes?api_key=\(tumblrConsumerKey)", parameters: nil,
+            success: { (operation: AFHTTPRequestOperation!, response: AnyObject!) -> Void in
+                var posts = [Post]()
+                let responseObj = response["response"] as! NSDictionary
+                let likedPosts = responseObj["liked_posts"] as! [AnyObject]
+                var i = 0
+                for (i; i < likedPosts.count; i++) {
+                    var post = Post(dic: likedPosts[i] as! NSDictionary)
+                    posts.append(post)
+                }
+                completion(posts: posts, error: nil)
+            }, failure: { (operation: AFHTTPRequestOperation!, err: NSError!) -> Void in
+                print("err getting liked posts")
+        })
+    }
+    
     
 
 }
