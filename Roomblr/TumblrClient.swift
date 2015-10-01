@@ -66,6 +66,7 @@ class TumblrClient: BDBOAuth1RequestOperationManager {
         })
     }
     
+    // return the last 20 posts liked from this blog
     func getBlogLikesPosts(blogName: String, completion:(posts: [Post]?, error: NSError?) -> ()) {
         TumblrClient.sharedInstance.GET("v2/blog/\(blogName).tumblr.com/likes?api_key=\(tumblrConsumerKey)", parameters: nil,
             success: { (operation: AFHTTPRequestOperation!, response: AnyObject!) -> Void in
@@ -78,11 +79,26 @@ class TumblrClient: BDBOAuth1RequestOperationManager {
                     posts.append(post)
                 }
                 completion(posts: posts, error: nil)
-            }, failure: { (operation: AFHTTPRequestOperation!, err: NSError!) -> Void in
-                print("err getting liked posts")
+            }, failure: { (operation: AFHTTPRequestOperation!, error: NSError!) -> Void in
+                print("error getting liked posts")
+                completion(posts: nil, error: error)
         })
     }
     
-    
-
+    func searchPostsWithTags(tag: String, completion: (posts: [Post]?, error: NSError?) -> ()) {
+        TumblrClient.sharedInstance.GET("/v2/tagged?tag=\(tag)", parameters: nil, success: { (operation: AFHTTPRequestOperation!, response: AnyObject!) -> Void in
+                var posts = [Post]()
+                let postsResponse = response["response"] as! [AnyObject]
+                var i = 0
+                for (i; i < postsResponse.count; i++ ) {
+                    var post = Post(dic: postsResponse[i] as! NSDictionary)
+                    posts.append(post)
+                }
+                completion(posts: posts, error: nil)
+            
+            }, failure: { (operation: AFHTTPRequestOperation!, error: NSError!) -> Void in
+                print("error getting searched posts")
+                completion(posts: nil, error: error)
+        })
+    }
 }
