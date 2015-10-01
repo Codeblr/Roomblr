@@ -22,9 +22,18 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         ParseUser.registerSubclass()
         Parse.setApplicationId("FwMbRpjZl9IVEzHut2U0WKbFnSVZIL0VQSJWMhUg", clientKey: "qeTh8ZXjNAxQc7YlbaprYXM6AfW8Ktrc3U2YcECC")
         if User.currentUser != nil {
-            // go to loggedin screen
-            let vc = storyboard.instantiateViewControllerWithIdentifier("GroupNavController") as! UINavigationController
-            window?.rootViewController = vc
+            // we need to make sure the PFUser exists
+            ParseClient.sharedInstance.setLoggedInPFUser(User.currentUser!, completion: { (user: User, error: NSError?) -> () in
+                if error == nil {
+                    print("Cached User successfully logged in")
+                    User.currentUser = user
+                    // go to loggedin screen
+                    let vc = self.storyboard.instantiateViewControllerWithIdentifier("GroupNavController") as! UINavigationController
+                    self.window?.rootViewController = vc
+                } else {
+                    // not sure what to do here
+                }
+            })
         }
         return true
     }

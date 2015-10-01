@@ -22,16 +22,14 @@ class ParseClient {
     
     // query PFUser table with user blogname
     func checkIfUserExists(user: User, completion: (pfUser: PFUser?, error: NSError?) -> ()) {
-        var query = PFQuery(className: "PFUser")
-        query.whereKey("username", equalTo: user.blogName! as String)
+        var query = PFUser.query()
+        query!.whereKey("username", equalTo: user.blogName! as String)
         
-        query.findObjectsInBackgroundWithBlock { (objects: [PFObject]?, error: NSError?) -> Void in
+        query!.getFirstObjectInBackgroundWithBlock { (object: PFObject?, error: NSError?) -> Void in
             var pfUser: PFUser?
             if error == nil {
                 // if there is at least one object, assume the only item in here should be the user we are looking for
-                if objects!.count > 0 {
-                    pfUser = objects![0] as! PFUser
-                }
+                pfUser = object as! PFUser
                 completion(pfUser: pfUser, error: nil)
             } else {
                 print("ERROR: Could not query for PFUser")
@@ -57,8 +55,7 @@ class ParseClient {
     // create pfUser
     func createPFUser(user: User, completion: (pfUser: PFUser?, error: NSError?) -> ()) {
         var pfUser = PFUser()
-        pfUser.username = user.blogName!
-        pfUser.email = user.blogName
+        pfUser.username = user.blogName
         pfUser.password = "12345678"
         
         pfUser.signUpInBackgroundWithBlock { (succeeded: Bool, error: NSError?) -> Void in
@@ -111,60 +108,20 @@ class ParseClient {
         }
     }
     
-    /*********************** PARSE USER **************************/
-
-    // Find a ParseUser by the users blogName
-    func getParseUser(user: User, completion: (parseUser: ParseUser?, error: NSError?) -> ()) {
-        var query = PFQuery(className: "ParseUser")
-        query.whereKey("blogName", equalTo: user.blogName! as String)
-
-        query.findObjectsInBackgroundWithBlock {
-            (objects: [PFObject]?, error: NSError?) -> Void in
-            var parseUser: ParseUser?
+    // return all PFUsers from Parse
+    func fetchAllPFUseres(completion: (pfUsers: [PFUser]?, error: NSError?) -> ()) {
+        var query = PFUser.query()
+        
+        query!.findObjectsInBackgroundWithBlock { (objects: [PFObject]?, error: NSError?) -> Void in
             if error == nil {
-                if objects!.count > 0 {
-                    // assume the item is in here
-                    parseUser = objects![0] as! ParseUser
-                }
-                completion(parseUser: parseUser, error: nil)
+                // assume [PFObject] are PFUsers
+                var pfUsers = objects as! [PFUser]
+                completion(pfUsers: pfUsers, error: nil)
             } else {
-                print("ERROR: Could not get query ParseUser")
-                completion(parseUser: nil, error: error)
+                print("ERROR: Could not query for PFUsers")
+                completion(pfUsers: nil, error: error)
             }
         }
     }
-    
-    // first check if parseUser is already in the ParseDB
-    // if it does return the parseUser
-    // otherwise create and save the parseUser
-    func saveParseUser(user: User, completion: (parseUser: ParseUser?, error: NSError?) -> ()) {
-        getParseUser(user) { (parseUser, error) -> () in
-            if error == nil {
-                // parseUser exists in DB, just return it then
-                if parseUser != nil {
-                    completion(parseUser: parseUser, error: nil)
-                } else {
-                // parseUser doesn't exist in DB, so lets create it and return it
-                    var createParseUser = ParseUser()
-                    createParseUser.blogName = user.blogName!
-                    createParseUser.saveInBackgroundWithBlock({ (succeeded: Bool, error: NSError?) -> Void in
-                        if succeeded {
-                            completion(parseUser: createParseUser, error: nil)
-                        } else {
-                            print("ERROR: Could not save parseUser in Parse")
-                            completion(parseUser: nil, error: error)
-                        }
-                    })
-                }
-                
-            } else {
-                completion(parseUser: nil, error: error)
-            }
-        }
-    }
-    
-    
-    
-    
     
 }
