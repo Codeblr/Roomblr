@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		17D115995B730F5BE8BF5393 /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 4A2A6BBF3032BAF0BB7D5DD9 /* libPods.a */; };
+		4E4E28231BBDE3C20094A549 /* RoomblrUtility.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E4E28221BBDE3C20094A549 /* RoomblrUtility.swift */; settings = {ASSET_TAGS = (); }; };
 		4EB90C121BBB33C10019945E /* ParseClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4EB90C111BBB33C10019945E /* ParseClient.swift */; settings = {ASSET_TAGS = (); }; };
 		4EF77D9B1BBB7D6E00B52B3A /* ParseUser.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4EF77D9A1BBB7D6E00B52B3A /* ParseUser.swift */; settings = {ASSET_TAGS = (); }; };
 		4EF82AC61BBCD065001DCC91 /* Post.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4EF82AC51BBCD065001DCC91 /* Post.swift */; settings = {ASSET_TAGS = (); }; };
@@ -35,6 +36,7 @@
 /* Begin PBXFileReference section */
 		006CF9782AF26BA418879218 /* Pods.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.release.xcconfig; path = "Pods/Target Support Files/Pods/Pods.release.xcconfig"; sourceTree = "<group>"; };
 		4A2A6BBF3032BAF0BB7D5DD9 /* libPods.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPods.a; sourceTree = BUILT_PRODUCTS_DIR; };
+		4E4E28221BBDE3C20094A549 /* RoomblrUtility.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RoomblrUtility.swift; sourceTree = "<group>"; };
 		4EB90C111BBB33C10019945E /* ParseClient.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ParseClient.swift; sourceTree = "<group>"; };
 		4EF77D9A1BBB7D6E00B52B3A /* ParseUser.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ParseUser.swift; sourceTree = "<group>"; };
 		4EF82AC51BBCD065001DCC91 /* Post.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Post.swift; sourceTree = "<group>"; };
@@ -157,6 +159,7 @@
 			children = (
 				B5F7AAD71BB988F200F768D9 /* TumblrClient.swift */,
 				4EB90C111BBB33C10019945E /* ParseClient.swift */,
+				4E4E28221BBDE3C20094A549 /* RoomblrUtility.swift */,
 			);
 			name = API;
 			sourceTree = "<group>";
@@ -324,6 +327,7 @@
 				9376EC101BB397B400289658 /* AppDelegate.swift in Sources */,
 				B5F7AAD81BB988F200F768D9 /* TumblrClient.swift in Sources */,
 				B5F7AADE1BB9A1BC00F768D9 /* GroupViewController.swift in Sources */,
+				4E4E28231BBDE3C20094A549 /* RoomblrUtility.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
