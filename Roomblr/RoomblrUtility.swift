@@ -58,7 +58,12 @@ class RoomblrUtility {
     // same proble as batching PFUsers so we must do this
     // right only one so going to assume tags[0] is our only tag
     func getTagPosts(tags: [String], completion: (posts: [Post]?, error: NSError?) -> ()) {
-        let tag = tags[0]
+        var tag = tags[0]
+        // THIS SHOULD BE REMOVED AND JUST RETURN IF NO TAG
+        // THIS IS JUST TEMPORARY SO WE CAN GET SOME CONTENT
+        if tag == "" {
+            tag = "lol"
+        }
         TumblrClient.sharedInstance.searchPostsWithTags(tag) { (posts, error) -> () in
             if error == nil {
                 completion(posts: posts, error: nil)
