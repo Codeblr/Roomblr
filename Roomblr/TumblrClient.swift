@@ -86,7 +86,9 @@ class TumblrClient: BDBOAuth1RequestOperationManager {
     }
     
     func searchPostsWithTags(tag: String, completion: (posts: [Post]?, error: NSError?) -> ()) {
-        TumblrClient.sharedInstance.GET("/v2/tagged?tag=\(tag)", parameters: nil, success: { (operation: AFHTTPRequestOperation!, response: AnyObject!) -> Void in
+        var params = [String: String]()
+        params["tag"] = tag
+        TumblrClient.sharedInstance.GET("/v2/tagged", parameters: params, success: { (operation: AFHTTPRequestOperation!, response: AnyObject!) -> Void in
                 var posts = [Post]()
                 let postsResponse = response["response"] as! [AnyObject]
                 var i = 0

@@ -26,8 +26,8 @@ class RoomblrUtility {
         ParseClient.sharedInstance.fetchAllPFUseres { (pfUsers: [PFUser]?, error: NSError?) -> () in
             if error == nil {
                 // TODO change this to get all likes from all users and collect top tags
-                let randomNumber = Int(arc4random()) % (pfUsers!.count - 1)
-                let pfUser = pfUsers![randomNumber]
+                var randomNumber = Int(arc4random()) % (pfUsers!.count - 1)
+                var pfUser = pfUsers![randomNumber]
                 
                 // fetch likes
                 TumblrClient.sharedInstance.getBlogLikesPosts(pfUser.username!, completion: { (posts, error) -> () in

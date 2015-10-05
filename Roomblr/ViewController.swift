@@ -27,7 +27,7 @@ class ViewController: UIViewController {
                 ParseClient.sharedInstance.setLoggedInPFUser(User.currentUser!, completion: { (user, error) -> () in
                     // probably should be down somwhere else...
                     User.currentUser = user
-                    if error == nil {
+                    if error == nil {                                                
                         self.performSegueWithIdentifier("loginSegue", sender: self)
                     } else {
                         print("ERROR: DID NOT LOG IN PF USER")
