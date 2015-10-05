@@ -25,12 +25,18 @@ class ParseClient {
         var query = PFUser.query()
         query!.whereKey("username", equalTo: user.blogName! as String)
         
-        query!.getFirstObjectInBackgroundWithBlock { (object: PFObject?, error: NSError?) -> Void in
+        query!.findObjectsInBackgroundWithBlock { (objects: [PFObject]?, error: NSError?) -> Void in
             var pfUser: PFUser?
             if error == nil {
-                // if there is at least one object, assume the only item in here should be the user we are looking for
-                pfUser = object as! PFUser
-                completion(pfUser: pfUser, error: nil)
+                // if there is a user found
+                if objects != nil && objects!.count > 0 {
+                    pfUser = objects![0] as! PFUser
+                    completion(pfUser: pfUser, error: nil)
+                } else {
+                    // if there is no user found
+                    // not sure whether the error should be nil here
+                    completion(pfUser: nil, error: nil)
+                }
             } else {
                 print("ERROR: Could not query for PFUser")
                 completion(pfUser: nil, error: error)
