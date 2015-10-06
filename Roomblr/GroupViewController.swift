@@ -43,28 +43,17 @@ class GroupViewController: UIViewController, UITableViewDataSource, UITableViewD
     }
     
     func getPosts() {
-        RoomblrUtility.sharedInstance.getTopTagsFromPosts { (tags, error) -> () in
-            if error == nil && tags != nil{
-                print("\(tags)")
-                RoomblrUtility.sharedInstance.getTagPosts(tags!, completion: { (posts, error) -> () in
-                    if error == nil {
-                        self.posts = posts!.filter {
-                            return $0.type == "text"
-                        }
-//                        var types = posts!.map {
-//                            return $0.type
-//                        }
-//                        print("\(types)")
-                        print("get text posts count \(self.posts.count)")
-                        self.tableView.reloadData()
-                        self.refreshControl.endRefreshing()
-                    } else {
-                        print("err getting top posts")
-                    }
-                })
+        RoomblrUtility.sharedInstance.getFeedPosts { (posts, error) -> () in
+            print(posts)
+            if error == nil {
+                self.posts = posts!
+                print("get posts count \(self.posts.count)")
+                self.tableView.reloadData()
+                self.refreshControl.endRefreshing()
             } else {
-                print("err getting top tags")
+                print("get feed posts err \(error)")
             }
+            
         }
     }
     

@@ -17,7 +17,7 @@ class PostCell: UITableViewCell {
     var post: Post? {
         didSet {
             blogNameLabel.text = post?.blogName
-            postBodyLabel.text = post?.body
+//            postBodyLabel.text = post?.body
         }
     }
 
