@@ -17,17 +17,30 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
     func application(application: UIApplication, didFinishLaunchingWithOptions launchOptions: [NSObject: AnyObject]?) -> Bool {
          NSNotificationCenter.defaultCenter().addObserver(self, selector: "userDidLogout", name: userDidLogoutNotification, object: nil)
+        
+        // set up parse
+        ParseUser.registerSubclass()
+        Parse.setApplicationId("FwMbRpjZl9IVEzHut2U0WKbFnSVZIL0VQSJWMhUg", clientKey: "qeTh8ZXjNAxQc7YlbaprYXM6AfW8Ktrc3U2YcECC")
         if User.currentUser != nil {
-            // go to loggedin screen
-            var vc = storyboard.instantiateViewControllerWithIdentifier("GroupNavController") as! UINavigationController
-            window?.rootViewController = vc
+            // we need to make sure the PFUser exists
+            ParseClient.sharedInstance.setLoggedInPFUser(User.currentUser!, completion: { (user: User, error: NSError?) -> () in
+                if error == nil {
+                    print("Cached User successfully logged in")
+                    User.currentUser = user
+                    // go to loggedin screen
+                    let vc = self.storyboard.instantiateViewControllerWithIdentifier("GroupNavController") as! UINavigationController
+                    self.window?.rootViewController = vc
+                } else {
+                    // not sure what to do here
+                }
+            })
         }
         return true
     }
     
     
     func userDidLogout() {
-        var vc = storyboard.instantiateInitialViewController()
+        let vc = storyboard.instantiateInitialViewController()
         window?.rootViewController = vc
     }
 

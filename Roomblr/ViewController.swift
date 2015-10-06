@@ -24,10 +24,19 @@ class ViewController: UIViewController {
         TumblrClient.sharedInstance.loginWithCompletion(){
             (user: User?, err: NSError?) in
             if (user != nil) {
+                ParseClient.sharedInstance.setLoggedInPFUser(User.currentUser!, completion: { (user, error) -> () in
+                    // probably should be down somwhere else...
+                    User.currentUser = user
+                    if error == nil {                                                
+                        self.performSegueWithIdentifier("loginSegue", sender: self)
+                    } else {
+                        print("ERROR: DID NOT LOG IN PF USER")
+                    }
+                })
                 // perform segue
-                self.performSegueWithIdentifier("loginSegue", sender: self)
             } else {
                 // display err
+                print("ERROR: DID NOT LOG IN TUMBLR USER")
             }
         }
     }
