@@ -82,11 +82,13 @@ class RoomblrUtility {
                         print("we got our posts")
 //                        print(posts)
                         completion(posts: posts, error: nil)
+                    } else {
+                        completion(posts: nil, error: error)
                     }
-                    completion(posts: nil, error: error)
                 })
+            } else {
+                completion(posts: nil, error: error)
             }
-            completion(posts: nil, error: error)
         })
         
     }
