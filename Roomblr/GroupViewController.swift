@@ -8,17 +8,74 @@
 
 import UIKit
 
-class GroupViewController: UIViewController {
+class GroupViewController: UIViewController, UITableViewDataSource, UITableViewDelegate {
+    
+    @IBOutlet weak var tableView: UITableView!
+    
+    var posts = [Post]()
+    var refreshControl: UIRefreshControl!
 
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        tableView.dataSource = self
+        tableView.delegate = self
+        getPosts()
+//        tableView.rowHeight = UITableViewAutomaticDimension
+//        tableView.estimatedRowHeight = 100
+        
+        
+        refreshControl = UIRefreshControl()
+        refreshControl.attributedTitle = NSAttributedString(string: "Pull to refresh")
+        refreshControl.addTarget(self, action: "refresh:", forControlEvents: UIControlEvents.ValueChanged)
+        tableView.addSubview(refreshControl)
+        
+        
         // Do any additional setup after loading the view.
     }
 
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
+    }
+    
+    func refresh(sender:AnyObject) {
+        getPosts()
+    }
+    
+    func getPosts() {
+        RoomblrUtility.sharedInstance.getTopTagsFromPosts { (tags, error) -> () in
+            if error == nil && tags != nil{
+                print("\(tags)")
+                RoomblrUtility.sharedInstance.getTagPosts(tags!, completion: { (posts, error) -> () in
+                    if error == nil {
+                        self.posts = posts!.filter {
+                            return $0.type == "text"
+                        }
+//                        var types = posts!.map {
+//                            return $0.type
+//                        }
+//                        print("\(types)")
+                        print("get text posts count \(self.posts.count)")
+                        self.tableView.reloadData()
+                        self.refreshControl.endRefreshing()
+                    } else {
+                        print("err getting top posts")
+                    }
+                })
+            } else {
+                print("err getting top tags")
+            }
+        }
+    }
+    
+    func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return posts.count
+    }
+    
+    func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
+        let cell = tableView.dequeueReusableCellWithIdentifier("PostCell", forIndexPath: indexPath) as! PostCell
+        cell.post = posts[indexPath.row]
+        return cell
     }
     
     @IBAction func onLogout(sender: AnyObject) {
