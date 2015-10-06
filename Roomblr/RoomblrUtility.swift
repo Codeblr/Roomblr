@@ -73,9 +73,28 @@ class RoomblrUtility {
         }
     }
     
+    // use this function to get the feed posts when dropped in the app
+    func getFeedPosts(completion: (posts: [Post]?, error: NSError?) -> ()) {
+        RoomblrUtility.sharedInstance.getTopTagsFromPosts({ (tags, error) -> () in
+            if error == nil {
+                RoomblrUtility.sharedInstance.getTagPosts(tags!, completion: { (posts, error) -> () in
+                    if error == nil {
+                        print("we got our posts")
+//                        print(posts)
+                        completion(posts: posts, error: nil)
+                    }
+                    completion(posts: nil, error: error)
+                })
+            }
+            completion(posts: nil, error: error)
+        })
+        
+    }
+    
+    
     // needs to sort all tags and return NUMBER_OF_TOP_TAGS tags
     // did this quick so we can make our views
-    func sortMaxTags(dictionary: [String: Int]) -> [String] {
+    private func sortMaxTags(dictionary: [String: Int]) -> [String] {
         var sorted = [String]()
         var maxTagKey = ""
         var maxTagValue = 0
@@ -88,5 +107,8 @@ class RoomblrUtility {
         sorted.append(maxTagKey)
         return sorted
     }
+    
+    
+    
     
 }
