@@ -16,7 +16,8 @@ class Post: NSObject {
     var type: String?
     var reblogKey: String?
     var dateString: String?
-    var body: String?
+    var photoUrl: String?
+
     
     var dic: NSDictionary
     
@@ -28,7 +29,16 @@ class Post: NSObject {
         dateString = dic["date"] as! String
         type = dic["type"] as! String
         reblogKey = dic["reblog_key"] as! String
-        body = dic["body"] as? String
+        
+        if type == "photo" {
+            var photos = dic["photos"] as! Array<AnyObject>
+            var altSizes = photos[0]["alt_sizes"]  as! Array<AnyObject>
+            for p in altSizes {
+                if p["width"] as! NSNumber == 250 {
+                    photoUrl = p["url"] as! String
+                }
+            }
+        }
     }
     
 }

@@ -88,6 +88,7 @@ class TumblrClient: BDBOAuth1RequestOperationManager {
     func searchPostsWithTags(tag: String, completion: (posts: [Post]?, error: NSError?) -> ()) {
         var params = [String: String]()
         params["tag"] = tag
+        params["filter"] = "text"
         TumblrClient.sharedInstance.GET("/v2/tagged", parameters: params, success: { (operation: AFHTTPRequestOperation!, response: AnyObject!) -> Void in
                 var posts = [Post]()
                 let postsResponse = response["response"] as! [AnyObject]
@@ -103,4 +104,92 @@ class TumblrClient: BDBOAuth1RequestOperationManager {
                 completion(posts: nil, error: error)
         })
     }
+    
+    func followBlog(blogUrl: String, completion: (error: NSError?) -> ()) {
+        var params = [String: String]()
+        params["url"] = blogUrl
+        
+        POST("/v2/user/follow", parameters: params,
+            success: {
+                (operation: AFHTTPRequestOperation!, response: AnyObject!) -> Void in
+                completion(error: nil)
+            },
+            failure: {
+                (operation: AFHTTPRequestOperation!, error: NSError!) -> Void in
+                completion(error: error)
+            }
+        )
+    }
+    
+    func unFollowBlog(blogUrl: String, completion: (error: NSError?) -> ()) {
+        var params = [String: String]()
+        params["url"] = blogUrl
+        
+        POST("/v2/user/unfollow", parameters: params,
+            success: {
+                (operation: AFHTTPRequestOperation!, response: AnyObject!) -> Void in
+                completion(error: nil)
+            },
+            failure: {
+                (operation: AFHTTPRequestOperation!, error: NSError!) -> Void in
+                completion(error: error)
+            }
+        )
+    }
+    
+    func likePost(id: String, reblogKey: String, completion: (error: NSError?) -> ()) {
+        var params = [String: String]()
+        params["id"] = id
+        params["reblogKey"] = reblogKey
+        
+        POST("/v2/user/like", parameters: params,
+            success: {
+                (operation: AFHTTPRequestOperation!, response: AnyObject!) -> Void in
+                completion(error: nil)
+            },
+            failure: {
+                (operation: AFHTTPRequestOperation!, error: NSError!) -> Void in
+                completion(error: error)
+            }
+        )
+    }
+    
+    func unLikePost(id: String, reblogKey: String, completion: (error: NSError?) -> ()) {
+        var params = [String: String]()
+        params["id"] = id
+        params["reblogKey"] = reblogKey
+        
+        POST("/v2/user/unlike", parameters: params,
+            success: {
+                (operation: AFHTTPRequestOperation!, response: AnyObject!) -> Void in
+                completion(error: nil)
+            },
+            failure: {
+                (operation: AFHTTPRequestOperation!, error: NSError!) -> Void in
+                completion(error: error)
+            }
+        )
+    }
+    
+    func reblogPost(blogName: String, id: String, reblogKey: String, comment: String?, completion: (error: NSError?) -> ()) {
+        var params = [String: String]()
+        let url = "v2/blog/\(blogName).tumblr.com/post/reblog"
+        params["id"] = id
+        params["reblogKey"] = reblogKey
+        if comment != nil {
+            params["comment"] = comment
+        }
+        
+        POST(url, parameters: params,
+            success: {
+                (operation: AFHTTPRequestOperation!, response: AnyObject!) -> Void in
+                completion(error: nil)
+            },
+            failure: {
+                (operation: AFHTTPRequestOperation!, error: NSError!) -> Void in
+                completion(error: error)
+            }
+        )
+    }
+    
 }
