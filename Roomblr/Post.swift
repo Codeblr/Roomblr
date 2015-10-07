@@ -17,6 +17,7 @@ class Post: NSObject {
     var reblogKey: String?
     var dateString: String?
     var photoUrl: String?
+    var blogAvatarUrl: String?
     var body: String?
 
     

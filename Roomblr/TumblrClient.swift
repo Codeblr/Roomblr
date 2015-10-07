@@ -85,6 +85,31 @@ class TumblrClient: BDBOAuth1RequestOperationManager {
         })
     }
     
+    // avatar image request
+    func getBlogAvatar(blogName: String, var size: Int?, completion: (url: String?, error: NSError?) -> ()) {
+        var params = [String: AnyObject]()
+        let url = "v2/blog/\(blogName).tumblr.com/avatar"
+        if size == nil {
+            size = 64
+        }
+        params["size"] =  size
+        
+        TumblrClient.sharedInstance.GET(url, parameters: params, success: { (operation: AFHTTPRequestOperation!, response: AnyObject!) -> Void in
+                var avatarUrl = response["avatar_url"] as! String
+                completion(url: avatarUrl, error: nil)
+            }, failure: { (operation: AFHTTPRequestOperation!, error: NSError!) -> Void in
+                if error.userInfo["NSErrorFailingURLKey"] != nil {
+                    var url = error.userInfo["NSErrorFailingURLKey"]
+                    var urlString = url?.absoluteString
+                    completion(url: urlString, error: nil)
+                } else {
+                    print("error getting blog avatar")
+                    completion(url: nil, error: error)
+                }
+        })        
+    }
+    
+    // search posts with tags
     func searchPostsWithTags(tag: String, completion: (posts: [Post]?, error: NSError?) -> ()) {
         var params = [String: String]()
         params["tag"] = tag
@@ -139,7 +164,6 @@ class TumblrClient: BDBOAuth1RequestOperationManager {
     
     func likePost(id: Int, reblogKey: String, completion: (error: NSError?) -> ()) {
         var params = [String: AnyObject]()
-        print("id \(id)  reblogKey \(reblogKey)")
         params["id"] = id as! Int
         params["reblog_key"] = reblogKey
         

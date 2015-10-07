@@ -36,6 +36,18 @@ class PostCell: UITableViewCell {
             } else if post?.type == "text" {
                 postBodyLabel.text = post!.body
             }
+            
+            // retreive blog avatarURL
+            if post?.blogAvatarUrl == nil {
+                TumblrClient.sharedInstance.getBlogAvatar((post?.blogName!)!, size: 64, completion: { (url, error) -> () in
+                    if error == nil {
+                        self.post!.blogAvatarUrl = url
+                        let avatarUrl = NSURL(string: url!)
+                        self.blogImageView.setImageWithURL(avatarUrl)
+                    }
+                })
+                
+            }
         }
     }
     
