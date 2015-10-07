@@ -19,6 +19,7 @@ class Post: NSObject {
     var photoUrl: String?
     var blogAvatarUrl: String?
     var body: String?
+    var liked: Bool?
 
     
     var dic: NSDictionary
@@ -31,6 +32,7 @@ class Post: NSObject {
         dateString = dic["date"] as! String
         type = dic["type"] as! String
         reblogKey = dic["reblog_key"] as! String
+        liked = dic["liked"] as! Bool
         
         if type == "photo" {
             var photos = dic["photos"] as! Array<AnyObject>

@@ -223,6 +223,7 @@
                                         <connections>
                                             <outlet property="blogImageView" destination="v8h-0c-jhA" id="WFN-qj-1ts"/>
                                             <outlet property="blogNameLabel" destination="ewh-EN-SKD" id="w2N-eb-93J"/>
+                                            <outlet property="likeBtn" destination="ECD-GR-IJw" id="eRR-oZ-7C8"/>
                                             <outlet property="photoView" destination="Wfu-zH-OER" id="HYN-d1-9G5"/>
                                             <outlet property="postBodyLabel" destination="4b2-5J-auj" id="FUZ-Wj-H6D"/>
                                             <segue destination="8ZQ-nZ-h8N" kind="push" id="N6I-YN-nUU"/>

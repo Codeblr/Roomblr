@@ -18,6 +18,8 @@ class PostCell: UITableViewCell {
     @IBOutlet weak var postBodyLabel: UILabel!
     @IBOutlet weak var blogImageView: UIImageView!
     @IBOutlet weak var photoView: UIImageView!
+    @IBOutlet weak var likeBtn: UIButton!
+    
     
     var postCellDelegate: PostCellDelegate?
     
@@ -46,7 +48,13 @@ class PostCell: UITableViewCell {
                         self.blogImageView.setImageWithURL(avatarUrl)
                     }
                 })
-                
+            }
+            
+
+            if (post?.liked != nil && post!.liked!) {
+                likeBtn.setImage(UIImage(named: "liked.png"), forState: .Normal)
+            } else {
+                likeBtn.setImage(UIImage(named: "like.png"), forState: .Normal)
             }
         }
     }
@@ -57,13 +65,28 @@ class PostCell: UITableViewCell {
     
     
     @IBAction func onLike(sender: AnyObject) {
-        TumblrClient.sharedInstance.likePost(post!.id!, reblogKey: post!.reblogKey!) { (error) -> () in
-            if error == nil {
-                print("like a post")
-            } else {
-                print("err liking post \(error)")
+        if (post?.liked != nil && post!.liked!) {
+            TumblrClient.sharedInstance.unLikePost(post!.id!, reblogKey: post!.reblogKey!) { (error) -> () in
+                if error == nil {
+                    print("unlike a post")
+                    self.post!.liked = true
+                    self.likeBtn.setImage(UIImage(named: "like.png"), forState: .Normal)
+                } else {
+                    print("err unliking post \(error)")
+                }
+            }
+        } else {
+            TumblrClient.sharedInstance.likePost(post!.id!, reblogKey: post!.reblogKey!) { (error) -> () in
+                if error == nil {
+                    print("like a post")
+                    self.post!.liked = true
+                    self.likeBtn.setImage(UIImage(named: "liked.png"), forState: .Normal)
+                } else {
+                    print("err liking post \(error)")
+                }
             }
         }
+        
     }
     
 
