@@ -40,14 +40,9 @@ class PostCell: UITableViewCell {
             }
             
             // retreive blog avatarURL
-            if post?.blogAvatarUrl == nil {
-                TumblrClient.sharedInstance.getBlogAvatar((post?.blogName!)!, size: 64, completion: { (url, error) -> () in
-                    if error == nil {
-                        self.post!.blogAvatarUrl = url
-                        let avatarUrl = NSURL(string: url!)
-                        self.blogImageView.setImageWithURL(avatarUrl)
-                    }
-                })
+            if post?.blogAvatarUrl != nil {
+                var url = NSURL(string: (post?.blogAvatarUrl)!)
+                self.blogImageView.setImageWithURL(url)
             }
             
 

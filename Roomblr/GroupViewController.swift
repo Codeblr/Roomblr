@@ -63,7 +63,17 @@ class GroupViewController: UIViewController, UITableViewDataSource, UITableViewD
         RoomblrUtility.sharedInstance.getFeedPosts { (posts, error) -> () in
             if error == nil {
                 self.posts = posts!
-                self.tableView.reloadData()
+                
+                for post in posts! {
+                    TumblrClient.sharedInstance.getBlogAvatar(post.blogName!, size: 64, completion: { (url, error) -> () in
+                        if error == nil {
+                            post.blogAvatarUrl = url
+                            self.tableView.reloadData()
+                        }
+                    })
+                    
+                }
+//                self.tableView.reloadData()
             } else {
                 print("get feed posts err \(error)")
             }
