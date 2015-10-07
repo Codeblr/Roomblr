@@ -8,7 +8,7 @@
 
 import UIKit
 
-class GroupViewController: UIViewController, UITableViewDataSource, UITableViewDelegate {
+class GroupViewController: UIViewController, UITableViewDataSource, UITableViewDelegate, PostCellDelegate {
     
     @IBOutlet weak var tableView: UITableView!
     
@@ -20,18 +20,35 @@ class GroupViewController: UIViewController, UITableViewDataSource, UITableViewD
         tableView.dataSource = self
         tableView.delegate = self
         getPosts()
-//        tableView.rowHeight = UITableViewAutomaticDimension
-//        tableView.estimatedRowHeight = 100
-        
+        tableView.rowHeight = UITableViewAutomaticDimension
+        tableView.estimatedRowHeight = 200
+//        NSNotificationCenter.defaultCenter().addObserver(self, selector: "imageDidLoadNotification:", name:"CellDidLoadImageDidLoadNotification", object: nil)
         
         refreshControl = UIRefreshControl()
         refreshControl.attributedTitle = NSAttributedString(string: "Pull to refresh")
         refreshControl.addTarget(self, action: "refresh:", forControlEvents: UIControlEvents.ValueChanged)
         tableView.addSubview(refreshControl)
-        
-        
-        // Do any additional setup after loading the view.
     }
+    
+    func imageUpdated(postCell: PostCell) {
+        print("\(tableView.indexPathForCell(postCell))")
+        if let indexPath = tableView.indexPathForCell(postCell) {
+            tableView.reloadRowsAtIndexPaths([indexPath], withRowAnimation: UITableViewRowAnimation.None)
+            print("reload cell")
+        }
+    }
+    
+//    func imageDidLoadNotification(notification: NSNotification) {
+//        print("get notification")
+//        if let cell = notification.object as? PostCell {
+//            print("\(cell)")
+//            print("\(tableView.indexPathForCell(cell))")
+//            if let indexPath = tableView.indexPathForCell(cell) {
+//                tableView.reloadRowsAtIndexPaths([indexPath], withRowAnimation: UITableViewRowAnimation.None)
+//                print("reload cell")
+//            }
+//        }
+//    }
 
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
@@ -47,11 +64,10 @@ class GroupViewController: UIViewController, UITableViewDataSource, UITableViewD
             if error == nil {
                 self.posts = posts!
                 self.tableView.reloadData()
-                self.refreshControl.endRefreshing()
             } else {
                 print("get feed posts err \(error)")
             }
-            
+            self.refreshControl.endRefreshing()            
         }
     }
     
@@ -61,6 +77,7 @@ class GroupViewController: UIViewController, UITableViewDataSource, UITableViewD
     
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCellWithIdentifier("PostCell", forIndexPath: indexPath) as! PostCell
+        cell.postCellDelegate = self
         cell.post = posts[indexPath.row]
         return cell
     }

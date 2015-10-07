@@ -8,12 +8,18 @@
 
 import UIKit
 
+protocol PostCellDelegate: class {
+    func imageUpdated(postCell: PostCell)
+}
+
 class PostCell: UITableViewCell {
     
     @IBOutlet weak var blogNameLabel: UILabel!
     @IBOutlet weak var postBodyLabel: UILabel!
     @IBOutlet weak var blogImageView: UIImageView!
     @IBOutlet weak var photoView: UIImageView!
+    
+    var postCellDelegate: PostCellDelegate?
     
     var post: Post? {
         didSet {
@@ -23,7 +29,10 @@ class PostCell: UITableViewCell {
                     let photoUrl = NSURL(string: urlString)
                     photoView.setImageWithURL(photoUrl!)
                     photoView.alpha = 1.0
-                }                
+                    postBodyLabel.alpha = 0
+                    
+//                NSNotificationCenter.defaultCenter().postNotificationName("CellDidLoadImageDidLoadNotification", object: self)
+                }
             } else if post?.type == "text" {
                 postBodyLabel.text = post!.body
             }
@@ -32,6 +41,7 @@ class PostCell: UITableViewCell {
 
     override func awakeFromNib() {
         super.awakeFromNib()
+        print("awake from nib \(post)")
         // Initialization code
     }
 
