@@ -18,6 +18,8 @@ class PostCell: UITableViewCell {
     @IBOutlet weak var postBodyLabel: UILabel!
     @IBOutlet weak var blogImageView: UIImageView!
     @IBOutlet weak var photoView: UIImageView!
+    @IBOutlet weak var likeBtn: UIButton!
+    
     
     var postCellDelegate: PostCellDelegate?
     
@@ -48,6 +50,7 @@ class PostCell: UITableViewCell {
         TumblrClient.sharedInstance.likePost(post!.id!, reblogKey: post!.reblogKey!) { (error) -> () in
             if error == nil {
                 print("like a post")
+                self.likeBtn.setImage(UIImage(named: "liked.png"), forState: .Normal)
             } else {
                 print("err liking post \(error)")
             }

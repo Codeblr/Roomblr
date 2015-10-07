@@ -77,7 +77,7 @@ class GroupViewController: UIViewController, UITableViewDataSource, UITableViewD
     
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCellWithIdentifier("PostCell", forIndexPath: indexPath) as! PostCell
-        cell.postCellDelegate = self
+//        cell.postCellDelegate = self
         cell.post = posts[indexPath.row]
         return cell
     }
