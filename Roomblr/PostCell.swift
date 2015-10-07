@@ -38,6 +38,22 @@ class PostCell: UITableViewCell {
             }
         }
     }
+    
+    @IBAction func onReblog(sender: AnyObject) {
+        
+    }
+    
+    
+    @IBAction func onLike(sender: AnyObject) {
+        TumblrClient.sharedInstance.likePost(post!.idString!, reblogKey: post!.reblogKey!) { (error) -> () in
+            if error == nil {
+                print("like a post")
+            } else {
+                print("err liking post \(error)")
+            }
+        }
+    }
+    
 
     override func awakeFromNib() {
         super.awakeFromNib()

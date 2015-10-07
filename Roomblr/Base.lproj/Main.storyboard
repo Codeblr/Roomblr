@@ -175,10 +175,16 @@
                                                         <constraint firstAttribute="height" constant="20" id="khF-wA-vHp"/>
                                                     </constraints>
                                                     <state key="normal" title="Like" image="like"/>
+                                                    <connections>
+                                                        <action selector="onLike:" destination="Rdf-EN-N0C" eventType="touchUpInside" id="a7Q-kF-eat"/>
+                                                    </connections>
                                                 </button>
                                                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="DVc-il-2mV">
                                                     <rect key="frame" x="224" y="232" width="20" height="20"/>
                                                     <state key="normal" title="Reblog" image="reblog"/>
+                                                    <connections>
+                                                        <action selector="onReblog:" destination="Rdf-EN-N0C" eventType="touchUpInside" id="hPW-OV-V0c"/>
+                                                    </connections>
                                                 </button>
                                                 <imageView userInteractionEnabled="NO" alpha="0.0" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="Wfu-zH-OER">
                                                     <rect key="frame" x="8" y="76" width="304" height="153.5"/>
