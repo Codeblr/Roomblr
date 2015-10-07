@@ -56,7 +56,8 @@ class PostCell: UITableViewCell {
         if (post?.liked != nil && post!.liked!) {
             TumblrClient.sharedInstance.unLikePost(post!.id!, reblogKey: post!.reblogKey!) { (error) -> () in
                 if error == nil {
-                    print("like a post")
+                    print("unlike a post")
+                    self.post!.liked = true
                     self.likeBtn.setImage(UIImage(named: "like.png"), forState: .Normal)
                 } else {
                     print("err unliking post \(error)")
@@ -66,6 +67,7 @@ class PostCell: UITableViewCell {
             TumblrClient.sharedInstance.likePost(post!.id!, reblogKey: post!.reblogKey!) { (error) -> () in
                 if error == nil {
                     print("like a post")
+                    self.post!.liked = true
                     self.likeBtn.setImage(UIImage(named: "liked.png"), forState: .Normal)
                 } else {
                     print("err liking post \(error)")
