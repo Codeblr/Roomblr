@@ -114,21 +114,6 @@ class ParseClient {
         }
     }
     
-    // return all PFUsers from Parse
-    func fetchAllPFUseres(completion: (pfUsers: [PFUser]?, error: NSError?) -> ()) {
-        var query = PFUser.query()
-        
-        query!.findObjectsInBackgroundWithBlock { (objects: [PFObject]?, error: NSError?) -> Void in
-            if error == nil {
-                // assume [PFObject] are PFUsers
-                var pfUsers = objects as! [PFUser]
-                completion(pfUsers: pfUsers, error: nil)
-            } else {
-                print("ERROR: Could not query for PFUsers")
-                completion(pfUsers: nil, error: error)
-            }
-        }
-    }
     
     /*********************** Parse User Info **************************/
     
@@ -147,9 +132,8 @@ class ParseClient {
         }
     }
     
-    func getParseUsersInfo(blogName: String, completion: (parseUserInfos: [ParseUserInfo]?, error: NSError?) -> ()) {
+    func getParseUsersInfo(completion: (parseUserInfos: [ParseUserInfo]?, error: NSError?) -> ()) {
         var query = PFQuery(className: "ParseUserInfo")
-        query.whereKey("blogName", equalTo: blogName)
         query.findObjectsInBackgroundWithBlock { (objects: [PFObject]?, error: NSError?) -> Void in
             if error == nil {
                 var parseUserInfos = [ParseUserInfo]()
