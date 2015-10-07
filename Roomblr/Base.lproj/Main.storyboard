@@ -156,12 +156,6 @@
                                                     <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
-                                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="lYa-Sm-xPv">
-                                                    <rect key="frame" x="83" y="36" width="44" height="30"/>
-                                                    <state key="normal" title="Follow">
-                                                        <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
-                                                    </state>
-                                                </button>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="JimBobo" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ewh-EN-SKD">
                                                     <rect key="frame" x="83" y="8" width="188" height="21"/>
                                                     <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="17"/>
@@ -193,6 +187,15 @@
                                                         <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="100" id="dMf-yS-sw9"/>
                                                     </constraints>
                                                 </imageView>
+                                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="lYa-Sm-xPv">
+                                                    <rect key="frame" x="83" y="36" width="44" height="30"/>
+                                                    <state key="normal" title="Follow">
+                                                        <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                                    </state>
+                                                    <connections>
+                                                        <action selector="onFollow:" destination="Rdf-EN-N0C" eventType="touchUpInside" id="Ajl-KU-eP5"/>
+                                                    </connections>
+                                                </button>
                                             </subviews>
                                             <constraints>
                                                 <constraint firstItem="DVc-il-2mV" firstAttribute="top" secondItem="ECD-GR-IJw" secondAttribute="top" id="1Lm-81-IgK"/>
@@ -223,6 +226,7 @@
                                         <connections>
                                             <outlet property="blogImageView" destination="v8h-0c-jhA" id="WFN-qj-1ts"/>
                                             <outlet property="blogNameLabel" destination="ewh-EN-SKD" id="w2N-eb-93J"/>
+                                            <outlet property="followBtn" destination="lYa-Sm-xPv" id="vtW-2R-6YP"/>
                                             <outlet property="likeBtn" destination="ECD-GR-IJw" id="eRR-oZ-7C8"/>
                                             <outlet property="photoView" destination="Wfu-zH-OER" id="HYN-d1-9G5"/>
                                             <outlet property="postBodyLabel" destination="4b2-5J-auj" id="FUZ-Wj-H6D"/>

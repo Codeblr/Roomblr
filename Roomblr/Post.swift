@@ -20,6 +20,7 @@ class Post: NSObject {
     var blogAvatarUrl: String?
     var body: String?
     var liked: Bool?
+    var followed: Bool?
 
     
     var dic: NSDictionary
@@ -33,6 +34,7 @@ class Post: NSObject {
         type = dic["type"] as! String
         reblogKey = dic["reblog_key"] as! String
         liked = dic["liked"] as! Bool
+        followed = dic["followed"] as! Bool
         
         if type == "photo" {
             var photos = dic["photos"] as! Array<AnyObject>

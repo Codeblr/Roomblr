@@ -19,6 +19,8 @@ class PostCell: UITableViewCell {
     @IBOutlet weak var blogImageView: UIImageView!
     @IBOutlet weak var photoView: UIImageView!
     @IBOutlet weak var likeBtn: UIButton!
+    @IBOutlet weak var followBtn: UIButton!
+    
     
     
     var postCellDelegate: PostCellDelegate?
@@ -56,8 +58,37 @@ class PostCell: UITableViewCell {
             } else {
                 likeBtn.setImage(UIImage(named: "like.png"), forState: .Normal)
             }
+            
+            if (post!.followed!) {
+                followBtn.setTitle("Unfollow", forState: .Normal)
+            } else {
+                followBtn.setTitle("Follow", forState: .Normal)
+            }
         }
     }
+    
+    @IBAction func onFollow(sender: AnyObject) {
+        if (post!.followed!) {
+            TumblrClient.sharedInstance.unFollowBlog("\(post!.blogName!).tumblr.com", completion: { (error) -> () in
+                if error == nil {
+                    self.post?.followed = false
+                    self.followBtn.setTitle("Follow", forState: .Normal)
+                } else {
+                    print("err unfollow blog")
+                }
+            })
+        } else {
+            TumblrClient.sharedInstance.followBlog("\(post!.blogName!).tumblr.com", completion: { (error) -> () in
+                if error == nil {
+                    self.post?.followed = true
+                    self.followBtn.setTitle("Unfollow", forState: .Normal)
+                } else {
+                    print("err unfollow blog")
+                }
+            })
+        }
+    }
+    
     
     @IBAction func onReblog(sender: AnyObject) {
         
