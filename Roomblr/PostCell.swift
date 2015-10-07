@@ -45,7 +45,7 @@ class PostCell: UITableViewCell {
     
     
     @IBAction func onLike(sender: AnyObject) {
-        TumblrClient.sharedInstance.likePost(post!.idString!, reblogKey: post!.reblogKey!) { (error) -> () in
+        TumblrClient.sharedInstance.likePost(post!.id!, reblogKey: post!.reblogKey!) { (error) -> () in
             if error == nil {
                 print("like a post")
             } else {

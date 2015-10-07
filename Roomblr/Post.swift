@@ -9,7 +9,7 @@
 import UIKit
 
 class Post: NSObject {
-    var idString: Int?
+    var id: Int?
     var blogName: String?
     var tags: [String]?
     var content: String?
@@ -24,7 +24,7 @@ class Post: NSObject {
     
     init(dic: NSDictionary) {
         self.dic = dic
-        idString = dic["id"] as! Int
+        id = dic["id"] as! Int
         blogName = dic["blog_name"] as! String
         tags = dic["tags"] as! [String]
         dateString = dic["date"] as! String
