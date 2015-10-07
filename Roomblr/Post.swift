@@ -9,7 +9,7 @@
 import UIKit
 
 class Post: NSObject {
-    var idString: String?
+    var id: Int?
     var blogName: String?
     var tags: [String]?
     var content: String?
@@ -17,17 +17,25 @@ class Post: NSObject {
     var reblogKey: String?
     var dateString: String?
     var photoUrl: String?
+    var blogAvatarUrl: String?
+    var body: String?
+    var liked: Bool?
+    var followed: Bool?
+
     
     var dic: NSDictionary
     
     init(dic: NSDictionary) {
         self.dic = dic
-        idString = String(dic["id"])
+        id = dic["id"] as! Int
         blogName = dic["blog_name"] as! String
         tags = dic["tags"] as! [String]
         dateString = dic["date"] as! String
         type = dic["type"] as! String
         reblogKey = dic["reblog_key"] as! String
+        liked = dic["liked"] as! Bool
+        followed = dic["followed"] as! Bool
+        
         if type == "photo" {
             var photos = dic["photos"] as! Array<AnyObject>
             var altSizes = photos[0]["alt_sizes"]  as! Array<AnyObject>
@@ -36,6 +44,8 @@ class Post: NSObject {
                     photoUrl = p["url"] as! String
                 }
             }
+        } else if type == "text" {
+            body = dic["body"] as! String
         }
     }
     

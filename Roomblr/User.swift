@@ -16,12 +16,16 @@ let userDidLogoutNotification = "userDidLogoutNotification"
 class User: NSObject {
     var name: String?
     var blogName: String?
+    var likes: Int?
+    var following: Int?
     var dic: NSDictionary
     var pfUser: PFUser?
     
     init(dic: NSDictionary) {
         self.dic = dic
-        name = dic["name"] as? String
+        name = dic["name"] as! String
+        likes = dic["likes"] as! Int
+        following = dic["following"] as! Int
         
         var blogs = (dic["blogs"] as! NSArray) as Array
         var i = 0

@@ -85,6 +85,31 @@ class TumblrClient: BDBOAuth1RequestOperationManager {
         })
     }
     
+    // avatar image request
+    func getBlogAvatar(blogName: String, var size: Int?, completion: (url: String?, error: NSError?) -> ()) {
+        var params = [String: AnyObject]()
+        let url = "v2/blog/\(blogName).tumblr.com/avatar"
+        if size == nil {
+            size = 64
+        }
+        params["size"] =  size
+        
+        TumblrClient.sharedInstance.GET(url, parameters: params, success: { (operation: AFHTTPRequestOperation!, response: AnyObject!) -> Void in
+                var avatarUrl = response["avatar_url"] as! String
+                completion(url: avatarUrl, error: nil)
+            }, failure: { (operation: AFHTTPRequestOperation!, error: NSError!) -> Void in
+                if error.userInfo["NSErrorFailingURLKey"] != nil {
+                    var url = error.userInfo["NSErrorFailingURLKey"]
+                    var urlString = url?.absoluteString
+                    completion(url: urlString, error: nil)
+                } else {
+                    print("error getting blog avatar")
+                    completion(url: nil, error: error)
+                }
+        })        
+    }
+    
+    // search posts with tags
     func searchPostsWithTags(tag: String, completion: (posts: [Post]?, error: NSError?) -> ()) {
         var params = [String: String]()
         params["tag"] = tag
@@ -122,7 +147,7 @@ class TumblrClient: BDBOAuth1RequestOperationManager {
     }
     
     func unFollowBlog(blogUrl: String, completion: (error: NSError?) -> ()) {
-        var params = [String: String]()
+        var params = [String: AnyObject]()
         params["url"] = blogUrl
         
         POST("/v2/user/unfollow", parameters: params,
@@ -137,10 +162,10 @@ class TumblrClient: BDBOAuth1RequestOperationManager {
         )
     }
     
-    func likePost(id: String, reblogKey: String, completion: (error: NSError?) -> ()) {
-        var params = [String: String]()
-        params["id"] = id
-        params["reblogKey"] = reblogKey
+    func likePost(id: Int, reblogKey: String, completion: (error: NSError?) -> ()) {
+        var params = [String: AnyObject]()
+        params["id"] = id as! Int
+        params["reblog_key"] = reblogKey
         
         POST("/v2/user/like", parameters: params,
             success: {
@@ -154,10 +179,10 @@ class TumblrClient: BDBOAuth1RequestOperationManager {
         )
     }
     
-    func unLikePost(id: String, reblogKey: String, completion: (error: NSError?) -> ()) {
-        var params = [String: String]()
+    func unLikePost(id: Int, reblogKey: String, completion: (error: NSError?) -> ()) {
+        var params = [String: AnyObject]()
         params["id"] = id
-        params["reblogKey"] = reblogKey
+        params["reblog_key"] = reblogKey
         
         POST("/v2/user/unlike", parameters: params,
             success: {
@@ -171,11 +196,11 @@ class TumblrClient: BDBOAuth1RequestOperationManager {
         )
     }
     
-    func reblogPost(blogName: String, id: String, reblogKey: String, comment: String?, completion: (error: NSError?) -> ()) {
-        var params = [String: String]()
+    func reblogPost(blogName: String, id: Int, reblogKey: String, comment: String?, completion: (error: NSError?) -> ()) {
+        var params = [String: AnyObject]()
         let url = "v2/blog/\(blogName).tumblr.com/post/reblog"
         params["id"] = id
-        params["reblogKey"] = reblogKey
+        params["reblog_key"] = reblogKey
         if comment != nil {
             params["comment"] = comment
         }
