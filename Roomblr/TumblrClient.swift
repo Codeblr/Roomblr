@@ -139,7 +139,6 @@ class TumblrClient: BDBOAuth1RequestOperationManager {
     
     func likePost(id: Int, reblogKey: String, completion: (error: NSError?) -> ()) {
         var params = [String: AnyObject]()
-        print("id \(id)  reblogKey \(reblogKey)")
         params["id"] = id as! Int
         params["reblog_key"] = reblogKey
         

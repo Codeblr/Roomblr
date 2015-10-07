@@ -38,6 +38,12 @@ class PostCell: UITableViewCell {
             } else if post?.type == "text" {
                 postBodyLabel.text = post!.body
             }
+            
+            if (post?.liked != nil && post!.liked!) {
+                likeBtn.setImage(UIImage(named: "liked.png"), forState: .Normal)
+            } else {
+                likeBtn.setImage(UIImage(named: "like.png"), forState: .Normal)
+            }
         }
     }
     
@@ -47,14 +53,26 @@ class PostCell: UITableViewCell {
     
     
     @IBAction func onLike(sender: AnyObject) {
-        TumblrClient.sharedInstance.likePost(post!.id!, reblogKey: post!.reblogKey!) { (error) -> () in
-            if error == nil {
-                print("like a post")
-                self.likeBtn.setImage(UIImage(named: "liked.png"), forState: .Normal)
-            } else {
-                print("err liking post \(error)")
+        if (post?.liked != nil && post!.liked!) {
+            TumblrClient.sharedInstance.unLikePost(post!.id!, reblogKey: post!.reblogKey!) { (error) -> () in
+                if error == nil {
+                    print("like a post")
+                    self.likeBtn.setImage(UIImage(named: "like.png"), forState: .Normal)
+                } else {
+                    print("err unliking post \(error)")
+                }
+            }
+        } else {
+            TumblrClient.sharedInstance.likePost(post!.id!, reblogKey: post!.reblogKey!) { (error) -> () in
+                if error == nil {
+                    print("like a post")
+                    self.likeBtn.setImage(UIImage(named: "liked.png"), forState: .Normal)
+                } else {
+                    print("err liking post \(error)")
+                }
             }
         }
+        
     }
     
 
