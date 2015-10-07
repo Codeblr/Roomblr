@@ -130,4 +130,38 @@ class ParseClient {
         }
     }
     
+    /*********************** Parse User Info **************************/
+    
+    func saveParseUserInfo(user: User, completion: (error: NSError?) -> ()) {
+        var userInfo = ParseUserInfo()
+        userInfo.blogName = user.blogName!
+        userInfo.likes = user.likes!
+        userInfo.following = user.following!
+        
+        userInfo.saveInBackgroundWithBlock { (completed: Bool, error: NSError?) -> Void in
+            if completed {
+                completion(error: nil)
+            } else {
+                completion(error: error)
+            }
+        }
+    }
+    
+    func getParseUsersInfo(blogName: String, completion: (parseUserInfos: [ParseUserInfo]?, error: NSError?) -> ()) {
+        var query = PFQuery(className: "ParseUserInfo")
+        query.whereKey("blogName", equalTo: blogName)
+        query.findObjectsInBackgroundWithBlock { (objects: [PFObject]?, error: NSError?) -> Void in
+            if error == nil {
+                var parseUserInfos = [ParseUserInfo]()
+                for object in objects! {
+                    parseUserInfos.append(object as! ParseUserInfo)
+                }
+                completion(parseUserInfos: parseUserInfos, error: nil)
+            } else {
+                completion(parseUserInfos: nil, error: error)
+            }
+        }
+    }
+    
+    
 }

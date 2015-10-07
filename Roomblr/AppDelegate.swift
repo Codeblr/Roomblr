@@ -19,7 +19,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
          NSNotificationCenter.defaultCenter().addObserver(self, selector: "userDidLogout", name: userDidLogoutNotification, object: nil)
         
         // set up parse
-        ParseUser.registerSubclass()
+        ParseUserInfo.registerSubclass()
         Parse.setApplicationId("FwMbRpjZl9IVEzHut2U0WKbFnSVZIL0VQSJWMhUg", clientKey: "qeTh8ZXjNAxQc7YlbaprYXM6AfW8Ktrc3U2YcECC")
         if User.currentUser != nil {
             // we need to make sure the PFUser exists
