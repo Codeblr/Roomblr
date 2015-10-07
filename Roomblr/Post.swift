@@ -17,6 +17,7 @@ class Post: NSObject {
     var reblogKey: String?
     var dateString: String?
     var photoUrl: String?
+    var body: String?
 
     
     var dic: NSDictionary
@@ -38,6 +39,8 @@ class Post: NSObject {
                     photoUrl = p["url"] as! String
                 }
             }
+        } else if type == "text" {
+            body = dic["body"] as! String
         }
     }
     

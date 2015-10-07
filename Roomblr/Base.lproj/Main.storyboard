@@ -176,6 +176,9 @@
                                                     <rect key="frame" x="200" y="161" width="41" height="24"/>
                                                     <state key="normal" title="Reblog" image="reblog"/>
                                                 </button>
+                                                <imageView userInteractionEnabled="NO" alpha="0.0" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Wfu-zH-OER">
+                                                    <rect key="frame" x="8" y="73" width="263" height="81"/>
+                                                </imageView>
                                             </subviews>
                                             <constraints>
                                                 <constraint firstAttribute="trailing" secondItem="4b2-5J-auj" secondAttribute="trailing" constant="8" id="2Y3-yW-DoI"/>
@@ -191,6 +194,7 @@
                                         <connections>
                                             <outlet property="blogImageView" destination="v8h-0c-jhA" id="WFN-qj-1ts"/>
                                             <outlet property="blogNameLabel" destination="ewh-EN-SKD" id="w2N-eb-93J"/>
+                                            <outlet property="photoView" destination="Wfu-zH-OER" id="HYN-d1-9G5"/>
                                             <outlet property="postBodyLabel" destination="4b2-5J-auj" id="FUZ-Wj-H6D"/>
                                             <segue destination="8ZQ-nZ-h8N" kind="push" id="N6I-YN-nUU"/>
                                         </connections>

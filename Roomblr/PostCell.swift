@@ -13,11 +13,20 @@ class PostCell: UITableViewCell {
     @IBOutlet weak var blogNameLabel: UILabel!
     @IBOutlet weak var postBodyLabel: UILabel!
     @IBOutlet weak var blogImageView: UIImageView!
+    @IBOutlet weak var photoView: UIImageView!
     
     var post: Post? {
         didSet {
             blogNameLabel.text = post?.blogName
-//            postBodyLabel.text = post?.body
+            if post?.type == "photo" {
+                if let urlString = (post?.photoUrl) {
+                    let photoUrl = NSURL(string: urlString)
+                    photoView.setImageWithURL(photoUrl!)
+                    photoView.alpha = 1.0
+                }                
+            } else if post?.type == "text" {
+                postBodyLabel.text = post!.body
+            }
         }
     }
 

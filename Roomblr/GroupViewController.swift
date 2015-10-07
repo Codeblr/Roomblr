@@ -44,10 +44,8 @@ class GroupViewController: UIViewController, UITableViewDataSource, UITableViewD
     
     func getPosts() {
         RoomblrUtility.sharedInstance.getFeedPosts { (posts, error) -> () in
-            print(posts)
             if error == nil {
                 self.posts = posts!
-                print("get posts count \(self.posts.count)")
                 self.tableView.reloadData()
                 self.refreshControl.endRefreshing()
             } else {
