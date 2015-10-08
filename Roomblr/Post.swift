@@ -17,6 +17,7 @@ class Post: NSObject {
     var reblogKey: String?
     var dateString: String?
     var photoUrl: String?
+    var photoRatio: Double?
     var blogAvatarUrl: String?
     var body: String?
     var liked: Bool?
@@ -42,6 +43,9 @@ class Post: NSObject {
             for p in altSizes {
                 if p["width"] as! NSNumber == 250 {
                     photoUrl = p["url"] as! String
+                    var width = p["width"] as! Double
+                    var height = p["height"] as! Double
+                    photoRatio =  (width / height) as! Double
                 }
             }
         } else if type == "text" {
