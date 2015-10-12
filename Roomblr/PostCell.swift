@@ -22,6 +22,8 @@ class PostCell: UITableViewCell {
     @IBOutlet weak var likeBtn: UIButton!
     @IBOutlet weak var followBtn: UIButton!
     
+    @IBOutlet weak var photoImageViewHeightConstraint: NSLayoutConstraint!
+
     var postCellDelegate: PostCellDelegate?
     
     var post: Post? {

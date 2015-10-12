@@ -94,7 +94,14 @@ class GroupViewController: UIViewController, UITableViewDataSource, UITableViewD
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCellWithIdentifier("PostCell", forIndexPath: indexPath) as! PostCell
         cell.postCellDelegate = self
-        cell.post = posts[indexPath.row]
+        let post = posts[indexPath.row]
+        
+        
+        if post.type == "photo" && post.photoRatio != nil{
+            let width = tableView.frame.width
+            cell.photoImageViewHeightConstraint.constant = width / CGFloat(post.photoRatio!)
+        }
+        cell.post = post
         return cell
     }
     
