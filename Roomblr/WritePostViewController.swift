@@ -9,6 +9,10 @@
 import UIKit
 
 class WritePostViewController: UIViewController {
+    
+    var rebloggedPost: Post?
+    
+    @IBOutlet weak var newPostTextLabel: UITextView!
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -19,6 +23,17 @@ class WritePostViewController: UIViewController {
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
+    }
+    
+    
+    @IBAction func onPost(sender: AnyObject) {
+        
+        if rebloggedPost != nil { // reblog a post
+            
+        } else { // create a new post
+            
+        }
+        
     }
     
 

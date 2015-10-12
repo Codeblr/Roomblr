@@ -18,6 +18,7 @@
 		9376EC171BB397B400289658 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 9376EC161BB397B400289658 /* Images.xcassets */; };
 		9376EC1A1BB397B400289658 /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9376EC181BB397B400289658 /* LaunchScreen.xib */; };
 		9376EC261BB397B400289658 /* RoomblrTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9376EC251BB397B400289658 /* RoomblrTests.swift */; };
+		B595B2A71BCB722300B3B4E9 /* WritePostViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B595B2A61BCB722300B3B4E9 /* WritePostViewController.swift */; settings = {ASSET_TAGS = (); }; };
 		B5BA36D91BC33B2C00499FDF /* PostCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5BA36D81BC33B2C00499FDF /* PostCell.swift */; settings = {ASSET_TAGS = (); }; };
 		B5F7AAD81BB988F200F768D9 /* TumblrClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5F7AAD71BB988F200F768D9 /* TumblrClient.swift */; settings = {ASSET_TAGS = (); }; };
 		B5F7AADB1BB989D500F768D9 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5F7AADA1BB989D500F768D9 /* User.swift */; settings = {ASSET_TAGS = (); }; };
@@ -52,6 +53,7 @@
 		9376EC1F1BB397B400289658 /* RoomblrTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = RoomblrTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		9376EC241BB397B400289658 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		9376EC251BB397B400289658 /* RoomblrTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RoomblrTests.swift; sourceTree = "<group>"; };
+		B595B2A61BCB722300B3B4E9 /* WritePostViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WritePostViewController.swift; sourceTree = "<group>"; };
 		B5BA36D81BC33B2C00499FDF /* PostCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PostCell.swift; sourceTree = "<group>"; };
 		B5F7AAD41BB9887E00F768D9 /* Roomblr-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "Roomblr-Bridging-Header.h"; sourceTree = "<group>"; };
 		B5F7AAD71BB988F200F768D9 /* TumblrClient.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TumblrClient.swift; sourceTree = "<group>"; };
@@ -190,6 +192,7 @@
 			children = (
 				9376EC111BB397B400289658 /* ViewController.swift */,
 				B5F7AADD1BB9A1BC00F768D9 /* GroupViewController.swift */,
+				B595B2A61BCB722300B3B4E9 /* WritePostViewController.swift */,
 			);
 			name = Controllers;
 			sourceTree = "<group>";
@@ -336,6 +339,7 @@
 				4EF82AC61BBCD065001DCC91 /* Post.swift in Sources */,
 				9376EC121BB397B400289658 /* ViewController.swift in Sources */,
 				9376EC101BB397B400289658 /* AppDelegate.swift in Sources */,
+				B595B2A71BCB722300B3B4E9 /* WritePostViewController.swift in Sources */,
 				B5F7AAD81BB988F200F768D9 /* TumblrClient.swift in Sources */,
 				B5F7AADE1BB9A1BC00F768D9 /* GroupViewController.swift in Sources */,
 				4E4E28231BBDE3C20094A549 /* RoomblrUtility.swift in Sources */,

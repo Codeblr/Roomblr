@@ -8,8 +8,9 @@
 
 import UIKit
 
-protocol PostCellDelegate: class {
+@objc protocol PostCellDelegate: class {
     func imageUpdated(postCell: PostCell)
+    optional func reblogPost(postCell: PostCell, post: Post)
 }
 
 class PostCell: UITableViewCell {
@@ -20,8 +21,6 @@ class PostCell: UITableViewCell {
     @IBOutlet weak var photoView: UIImageView!
     @IBOutlet weak var likeBtn: UIButton!
     @IBOutlet weak var followBtn: UIButton!
-    
-    
     
     var postCellDelegate: PostCellDelegate?
     
@@ -34,8 +33,6 @@ class PostCell: UITableViewCell {
                     photoView.setImageWithURL(photoUrl!)
                     photoView.alpha = 1.0
                     postBodyLabel.alpha = 0
-                    
-//                NSNotificationCenter.defaultCenter().postNotificationName("CellDidLoadImageDidLoadNotification", object: self)
                 }
             } else if post?.type == "text" {
                 postBodyLabel.text = post!.body
@@ -86,7 +83,7 @@ class PostCell: UITableViewCell {
     
     
     @IBAction func onReblog(sender: AnyObject) {
-        
+        postCellDelegate?.reblogPost!(self, post: post!)
     }
     
     

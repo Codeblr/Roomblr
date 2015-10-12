@@ -38,6 +38,12 @@ class GroupViewController: UIViewController, UITableViewDataSource, UITableViewD
         }
     }
     
+    func reblogPost(postCell: PostCell, post: Post) {
+        print("will reblog post \(post)")
+        
+    }
+    
+    
 //    func imageDidLoadNotification(notification: NSNotification) {
 //        print("get notification")
 //        if let cell = notification.object as? PostCell {
@@ -87,7 +93,7 @@ class GroupViewController: UIViewController, UITableViewDataSource, UITableViewD
     
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCellWithIdentifier("PostCell", forIndexPath: indexPath) as! PostCell
-//        cell.postCellDelegate = self
+        cell.postCellDelegate = self
         cell.post = posts[indexPath.row]
         return cell
     }
