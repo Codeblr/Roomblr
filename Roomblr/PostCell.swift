@@ -8,8 +8,8 @@
 
 import UIKit
 
-protocol PostCellDelegate: class {
-    func imageUpdated(postCell: PostCell)
+@objc protocol PostCellDelegate: class {
+    optional func reblogPost(postCell: PostCell, post: Post)
 }
 
 class PostCell: UITableViewCell {
@@ -22,8 +22,7 @@ class PostCell: UITableViewCell {
     @IBOutlet weak var followBtn: UIButton!
     
     @IBOutlet weak var photoImageViewHeightConstraint: NSLayoutConstraint!
-    
-    
+
     var postCellDelegate: PostCellDelegate?
     
     var post: Post? {
@@ -35,8 +34,6 @@ class PostCell: UITableViewCell {
                     photoView.setImageWithURL(photoUrl!)
                     photoView.alpha = 1.0
                     postBodyLabel.alpha = 0
-                    
-//                NSNotificationCenter.defaultCenter().postNotificationName("CellDidLoadImageDidLoadNotification", object: self)
                 }
             } else if post?.type == "text" {
                 postBodyLabel.text = post!.body
@@ -87,7 +84,7 @@ class PostCell: UITableViewCell {
     
     
     @IBAction func onReblog(sender: AnyObject) {
-        
+        postCellDelegate?.reblogPost!(self, post: post!)
     }
     
     
@@ -127,6 +124,11 @@ class PostCell: UITableViewCell {
         super.setSelected(selected, animated: animated)
 
         // Configure the view for the selected state
+    }
+    
+    override func prepareForReuse() {
+        photoView.image = nil
+        blogImageView.image = nil
     }
 
 }
