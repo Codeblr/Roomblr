@@ -10,13 +10,53 @@ import UIKit
 
 class WritePostViewController: UIViewController {
     
-    var rebloggedPost: Post?
+   
+    @IBOutlet weak var currentUserAvartar: UIImageView!
+    @IBOutlet weak var rebloggedUserAvatar: UIImageView!
+    
+    @IBOutlet weak var rebloggedPhotoView: UIImageView!
+    @IBOutlet weak var rebloggedTextView: UITextView!
+    
+    var rebloggedPost: Post? {
+        didSet {
+            view.layoutIfNeeded()
+            if rebloggedPost?.type == "photo" {
+                if let urlString = (rebloggedPost?.photoUrl) {
+                    if let photoUrl = NSURL(string: urlString) {
+                        rebloggedPhotoView.setImageWithURL(photoUrl)
+                        rebloggedPhotoView.alpha = 1.0
+                        rebloggedTextView.alpha = 0
+                    }
+                }
+            } else if rebloggedPost?.type == "text" {
+                rebloggedTextView.text = rebloggedPost!.body
+                rebloggedPhotoView.alpha = 0
+                rebloggedTextView.alpha = 1.0
+            }
+            
+            if rebloggedPost?.blogAvatarUrl != nil {
+                let url = NSURL(string: (rebloggedPost?.blogAvatarUrl)!)
+                self.rebloggedUserAvatar.setImageWithURL(url)
+            }
+
+        }
+    }
+    
     
     @IBOutlet weak var newPostTextLabel: UITextView!
 
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        newPostTextLabel.becomeFirstResponder()
+        TumblrClient.sharedInstance.getBlogAvatar(User.currentUser!.blogName!, size: nil) { (url, error) -> () in
+            if (error == nil) {
+                if let imageUrl = NSURL(string: url!) {
+                    self.currentUserAvartar.setImageWithURL(imageUrl)
+                }
+            } else {
+                print(error)
+            }
+        }
         // Do any additional setup after loading the view.
     }
 
@@ -25,17 +65,28 @@ class WritePostViewController: UIViewController {
         // Dispose of any resources that can be recreated.
     }
     
-    
     @IBAction func onPost(sender: AnyObject) {
-        
-        if rebloggedPost != nil { // reblog a post
-            
-        } else { // create a new post
-            
+        if (newPostTextLabel.text != "") {
+            if rebloggedPost != nil { // reblog a post
+                print("got the rebloggedPost \(rebloggedPost)")
+                TumblrClient.sharedInstance.reblogPost(User.currentUser!.blogName!, id: rebloggedPost!.id!, reblogKey: rebloggedPost!.reblogKey!, comment: newPostTextLabel.text, completion: { (error) -> () in
+                    if (error == nil) {
+                        print("reblog post success!!")
+                    } else {
+                        print("\(error)")
+                    }
+                    self.dismissViewControllerAnimated(true, completion: nil)
+                })
+            } else { // create a new post
+                
+            }
         }
-        
     }
     
+    
+    @IBAction func onCancel(sender: AnyObject) {
+        dismissViewControllerAnimated(true, completion: nil)
+    }
 
     /*
     // MARK: - Navigation

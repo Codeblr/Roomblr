@@ -22,7 +22,6 @@ class GroupViewController: UIViewController, UITableViewDataSource, UITableViewD
         getPosts()
         tableView.rowHeight = UITableViewAutomaticDimension
         tableView.estimatedRowHeight = 200
-//        NSNotificationCenter.defaultCenter().addObserver(self, selector: "imageDidLoadNotification:", name:"CellDidLoadImageDidLoadNotification", object: nil)
         
         refreshControl = UIRefreshControl()
         refreshControl.attributedTitle = NSAttributedString(string: "Pull to refresh")
@@ -30,31 +29,12 @@ class GroupViewController: UIViewController, UITableViewDataSource, UITableViewD
         tableView.addSubview(refreshControl)
     }
     
-    func imageUpdated(postCell: PostCell) {
-        print("\(tableView.indexPathForCell(postCell))")
-        if let indexPath = tableView.indexPathForCell(postCell) {
-            tableView.reloadRowsAtIndexPaths([indexPath], withRowAnimation: UITableViewRowAnimation.None)
-            print("reload cell")
-        }
-    }
     
     func reblogPost(postCell: PostCell, post: Post) {
         print("will reblog post \(post)")
-        
+        performSegueWithIdentifier("reblog", sender: post)
     }
     
-    
-//    func imageDidLoadNotification(notification: NSNotification) {
-//        print("get notification")
-//        if let cell = notification.object as? PostCell {
-//            print("\(cell)")
-//            print("\(tableView.indexPathForCell(cell))")
-//            if let indexPath = tableView.indexPathForCell(cell) {
-//                tableView.reloadRowsAtIndexPaths([indexPath], withRowAnimation: UITableViewRowAnimation.None)
-//                print("reload cell")
-//            }
-//        }
-//    }
 
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
@@ -113,14 +93,25 @@ class GroupViewController: UIViewController, UITableViewDataSource, UITableViewD
         User.currentUser?.logout()
     }
 
-    /*
+
     // MARK: - Navigation
 
     // In a storyboard-based application, you will often want to do a little preparation before navigation
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
         // Get the new view controller using segue.destinationViewController.
         // Pass the selected object to the new view controller.
+        if segue.identifier == "reblog" {
+            if let navc = segue.destinationViewController as? UINavigationController {
+                if let vc = navc.topViewController as? WritePostViewController {
+                    if let post = sender as? Post {
+                        vc.rebloggedPost = post
+                    }
+                    
+                }
+            }
+            
+        }
     }
-    */
+
 
 }

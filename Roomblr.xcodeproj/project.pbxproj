@@ -121,11 +121,11 @@
 			isa = PBXGroup;
 			children = (
 				9376EC0F1BB397B400289658 /* AppDelegate.swift */,
+				9376EC131BB397B400289658 /* Main.storyboard */,
 				B5BA36D71BC33B0700499FDF /* Views */,
 				B5F7AADC1BB9A19600F768D9 /* Controllers */,
 				B5F7AAD91BB989BE00F768D9 /* Models */,
 				B5F7AACD1BB90A7200F768D9 /* API */,
-				9376EC131BB397B400289658 /* Main.storyboard */,
 				9376EC161BB397B400289658 /* Images.xcassets */,
 				9376EC181BB397B400289658 /* LaunchScreen.xib */,
 				9376EC0D1BB397B400289658 /* Supporting Files */,

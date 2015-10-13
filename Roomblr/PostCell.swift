@@ -9,7 +9,6 @@
 import UIKit
 
 @objc protocol PostCellDelegate: class {
-    func imageUpdated(postCell: PostCell)
     optional func reblogPost(postCell: PostCell, post: Post)
 }
 
