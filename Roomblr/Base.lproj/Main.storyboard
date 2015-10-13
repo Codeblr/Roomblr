@@ -398,7 +398,7 @@
                                     <constraint firstAttribute="width" constant="50" id="kWk-7e-wTU"/>
                                 </constraints>
                             </imageView>
-                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" text="Please enter your text here...." translatesAutoresizingMaskIntoConstraints="NO" id="y68-0Q-yFz">
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="y68-0Q-yFz">
                                 <rect key="frame" x="8" y="72" width="304" height="200"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <constraints>
