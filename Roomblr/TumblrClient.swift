@@ -217,4 +217,28 @@ class TumblrClient: BDBOAuth1RequestOperationManager {
         )
     }
     
+    func createTextPost(blogName: String,  title: String?, body: String, tags: String?, completion: (error: NSError?) -> ()) {
+        var params = [String: AnyObject]()
+        let url = "v2/blog/\(blogName).tumblr.com/post"
+        params["type"] = "text"
+        params["body"] = body
+        if title != nil {
+            params["title"] = title
+        }
+        if tags != nil {
+            params["tags"] = tags
+        }
+        
+        POST(url, parameters: params,
+            success: {
+                (operation: AFHTTPRequestOperation!, response: AnyObject!) -> Void in
+                completion(error: nil)
+            },
+            failure: {
+                (operation: AFHTTPRequestOperation!, error: NSError!) -> Void in
+                completion(error: error)
+            }
+        )
+    }
+    
 }
