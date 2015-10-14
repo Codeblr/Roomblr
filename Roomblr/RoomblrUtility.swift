@@ -8,7 +8,7 @@
 
 import UIKit
 
-let NUMBER_OF_TOP_TAGS = 1
+let NUMBER_OF_TOP_TAGS = 5
 let NUMBER_OF_MAX_REQUESTS = 5
 
 class RoomblrUtility {
@@ -58,7 +58,7 @@ class RoomblrUtility {
                             
                             // check if last in queue
                             if topTagsFromPostsQueue == 0 {
-                                let tags = self.sortMaxTags(tagDictionary) as! [String]
+                                let tags = self.sortMaxTags(tagDictionary) 
                                 completion(tags: tags, error: nil)
                             }
                             
@@ -115,17 +115,15 @@ class RoomblrUtility {
     // needs to sort all tags and return NUMBER_OF_TOP_TAGS tags
     // did this quick so we can make our views
     private func sortMaxTags(dictionary: [String: Int]) -> [String] {
-        var sorted = [String]()
-        var maxTagKey = ""
-        var maxTagValue = 0
-        for (tagName, value) in dictionary {
-            if value > maxTagValue {
-                maxTagKey = tagName
-                maxTagValue = value
-            }
+        var tags = [String]()
+        let sortedTags = dictionary.sort{ $0.1 > $1.1}
+        
+        let topTags = sortedTags.slice(0, NUMBER_OF_TOP_TAGS)
+        for tag in topTags {
+            tags.append(tag.0)
         }
-        sorted.append(maxTagKey)
-        return sorted
+        
+        return tags
     }
     
     
