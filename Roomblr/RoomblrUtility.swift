@@ -105,8 +105,9 @@ class RoomblrUtility {
         }
         RoomblrUtility.sharedInstance.getTopTagsFromPosts({ (tags, error) -> () in
             if error == nil {
-                RoomblrUtility.sharedInstance.getTagPosts(tags!, completion: { (posts, error) -> () in
+                RoomblrUtility.sharedInstance.getTagPosts(tags!, completion: { (var posts, error) -> () in
                     if error == nil {
+                        posts!.shuffleInPlace()
                         var feed = posts!.slice(0, maxPostSize!)
                         completion(posts: feed, error: nil)
                     } else {
