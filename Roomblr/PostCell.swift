@@ -37,6 +37,8 @@ class PostCell: UITableViewCell {
                 }
             } else if post?.type == "text" {
                 postBodyLabel.text = post!.body
+                photoView.alpha = 0.0
+                postBodyLabel.alpha = 1.0
             }
             
             // retreive blog avatarURL
