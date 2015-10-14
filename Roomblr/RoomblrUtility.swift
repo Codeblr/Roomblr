@@ -10,6 +10,7 @@ import UIKit
 
 let NUMBER_OF_TOP_TAGS = 5
 let NUMBER_OF_MAX_REQUESTS = 5
+let MAX_POSTS_SIZE = 20
 
 class RoomblrUtility {
     
@@ -76,30 +77,38 @@ class RoomblrUtility {
     // same proble as batching PFUsers so we must do this
     // right only one so going to assume tags[0] is our only tag
     func getTagPosts(tags: [String], completion: (posts: [Post]?, error: NSError?) -> ()) {
-        var tag = tags[0]
-        // THIS SHOULD BE REMOVED AND JUST RETURN IF NO TAG
-        // THIS IS JUST TEMPORARY SO WE CAN GET SOME CONTENT
-        if tag == "" {
-            tag = "lol"
-        }
-        TumblrClient.sharedInstance.searchPostsWithTags(tag) { (posts, error) -> () in
-            if error == nil {
-                completion(posts: posts, error: nil)
-            } else {
-                completion(posts: nil, error: error)
+        var tagPostsQueue = tags.count
+        var feedPosts = [Post]()
+        
+        for tag in tags {
+            TumblrClient.sharedInstance.searchPostsWithTags(tag) { (posts, error) -> () in
+                tagPostsQueue--
+                if error == nil {
+                    for post in posts! {
+                        feedPosts.append(post)
+                    }
+                    
+                    if tagPostsQueue == 0 {
+                        completion(posts: feedPosts, error: nil)
+                    }
+                } else {
+                    print("could not complete a request")
+                }
             }
         }
     }
     
     // use this function to get the feed posts when dropped in the app
-    func getFeedPosts(completion: (posts: [Post]?, error: NSError?) -> ()) {
+    func getFeedPosts(var maxPostSize: Int?, completion: (posts: [Post]?, error: NSError?) -> ()) {
+        if maxPostSize == nil {
+            maxPostSize = MAX_POSTS_SIZE
+        }
         RoomblrUtility.sharedInstance.getTopTagsFromPosts({ (tags, error) -> () in
             if error == nil {
                 RoomblrUtility.sharedInstance.getTagPosts(tags!, completion: { (posts, error) -> () in
                     if error == nil {
-                        print("we got our posts")
-//                        print(posts)
-                        completion(posts: posts, error: nil)
+                        var feed = posts!.slice(0, maxPostSize!)
+                        completion(posts: feed, error: nil)
                     } else {
                         completion(posts: nil, error: error)
                     }
@@ -125,8 +134,4 @@ class RoomblrUtility {
         
         return tags
     }
-    
-    
-    
-    
 }

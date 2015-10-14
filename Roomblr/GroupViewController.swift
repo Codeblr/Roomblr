@@ -46,7 +46,7 @@ class GroupViewController: UIViewController, UITableViewDataSource, UITableViewD
     }
     
     func getPosts() {
-        RoomblrUtility.sharedInstance.getFeedPosts { (posts, error) -> () in
+        RoomblrUtility.sharedInstance.getFeedPosts(nil, completion: { (posts, error) -> () in
             if error == nil {
                 self.posts = posts!
                 
@@ -64,7 +64,7 @@ class GroupViewController: UIViewController, UITableViewDataSource, UITableViewD
                 print("get feed posts err \(error)")
             }
             self.refreshControl.endRefreshing()            
-        }
+        })
     }
     
     func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
