@@ -134,11 +134,24 @@ class ParseClient {
     /*********************** Parse User Info **************************/
     
     func saveParseUserInfo(user: User, completion: (error: NSError?) -> ()) {
-        var userInfo = ParseUserInfo()
+        var userInfo: ParseUserInfo
+        
+        // delete old entry
+        var query = PFQuery(className: "ParseUserInfo")
+        query.whereKey("blogName", equalTo: user.blogName! as String)
+        query.findObjectsInBackgroundWithBlock { (objects: [PFObject]?, error: NSError?) -> Void in
+            for o in objects! {
+                var parseUserInfo = o as! ParseUserInfo
+                parseUserInfo.deleteInBackground()
+            }
+        }
+
+        userInfo = ParseUserInfo()
         userInfo.blogName = user.blogName!
         userInfo.likes = user.likes!
         userInfo.following = user.following!
         userInfo.blogAvatarUrl = user.blogAvatarUrl!
+        
         
         userInfo.saveInBackgroundWithBlock { (completed: Bool, error: NSError?) -> Void in
             if completed {
