@@ -8,12 +8,26 @@
 
 import UIKit
 
-class RoommatesViewController: UIViewController {
+class RoommatesViewController: UIViewController, UITableViewDataSource, UITableViewDelegate {
     
-    var pfUserInfos = [ParseUserInfo]()
+    @IBOutlet weak var tableView: UITableView!
+    
+    var parseUserInfos = [ParseUserInfo]()
+    var refreshControl: UIRefreshControl!
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        tableView.dataSource = self
+        tableView.delegate = self
+        getRoomates()
+        tableView.rowHeight = UITableViewAutomaticDimension
+        tableView.estimatedRowHeight = 200
+        
+        refreshControl = UIRefreshControl()
+        refreshControl.attributedTitle = NSAttributedString(string: "Pull to refresh")
+        refreshControl.addTarget(self, action: "refresh:", forControlEvents: UIControlEvents.ValueChanged)
+        tableView.addSubview(refreshControl)
+        
 
         // Do any additional setup after loading the view.
     }
@@ -24,6 +38,33 @@ class RoommatesViewController: UIViewController {
     }
     
 
+    func getRoomates() {
+        ParseClient.sharedInstance.getParseUsersInfo({ (parseUserInfos, error) -> () in
+            if error == nil {
+                self.parseUserInfos = parseUserInfos!
+                self.tableView.reloadData()
+            }
+            
+            self.refreshControl.endRefreshing()
+        })
+    }
+    
+    func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return parseUserInfos.count
+    }
+    
+    func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
+        let cell = tableView.dequeueReusableCellWithIdentifier("ParseUserInfoCell", forIndexPath: indexPath) as! ParseUserInfoCell
+        let parseUserInfo = parseUserInfos[indexPath.row]
+        cell.parseUserInfo = parseUserInfo
+        return cell
+    }
+    
+    func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
+        tableView.deselectRowAtIndexPath(indexPath, animated:true)
+    }
+    
+    
     /*
     // MARK: - Navigation
 
