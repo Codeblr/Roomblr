@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		17D115995B730F5BE8BF5393 /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 4A2A6BBF3032BAF0BB7D5DD9 /* libPods.a */; };
+		4E0497F41BD59DE300A819D8 /* RoommatesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E0497F31BD59DE300A819D8 /* RoommatesViewController.swift */; settings = {ASSET_TAGS = (); }; };
 		4E4E28231BBDE3C20094A549 /* RoomblrUtility.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E4E28221BBDE3C20094A549 /* RoomblrUtility.swift */; settings = {ASSET_TAGS = (); }; };
 		4E512AA71BC5D4BB002AB816 /* ParseUserInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E512AA61BC5D4BB002AB816 /* ParseUserInfo.swift */; settings = {ASSET_TAGS = (); }; };
 		4E9B2B661BCEFE0900234A49 /* ArraySlice.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E9B2B651BCEFE0900234A49 /* ArraySlice.swift */; settings = {ASSET_TAGS = (); }; };
@@ -40,6 +41,7 @@
 /* Begin PBXFileReference section */
 		006CF9782AF26BA418879218 /* Pods.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.release.xcconfig; path = "Pods/Target Support Files/Pods/Pods.release.xcconfig"; sourceTree = "<group>"; };
 		4A2A6BBF3032BAF0BB7D5DD9 /* libPods.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPods.a; sourceTree = BUILT_PRODUCTS_DIR; };
+		4E0497F31BD59DE300A819D8 /* RoommatesViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RoommatesViewController.swift; sourceTree = "<group>"; };
 		4E4E28221BBDE3C20094A549 /* RoomblrUtility.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RoomblrUtility.swift; sourceTree = "<group>"; };
 		4E512AA61BC5D4BB002AB816 /* ParseUserInfo.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ParseUserInfo.swift; sourceTree = "<group>"; };
 		4E9B2B651BCEFE0900234A49 /* ArraySlice.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ArraySlice.swift; sourceTree = "<group>"; };
@@ -207,6 +209,7 @@
 				9376EC111BB397B400289658 /* ViewController.swift */,
 				B5F7AADD1BB9A1BC00F768D9 /* GroupViewController.swift */,
 				B595B2A61BCB722300B3B4E9 /* WritePostViewController.swift */,
+				4E0497F31BD59DE300A819D8 /* RoommatesViewController.swift */,
 			);
 			name = Controllers;
 			sourceTree = "<group>";
@@ -357,6 +360,7 @@
 				B595B2A71BCB722300B3B4E9 /* WritePostViewController.swift in Sources */,
 				B5F7AAD81BB988F200F768D9 /* TumblrClient.swift in Sources */,
 				B5F7AADE1BB9A1BC00F768D9 /* GroupViewController.swift in Sources */,
+				4E0497F41BD59DE300A819D8 /* RoommatesViewController.swift in Sources */,
 				4E4E28231BBDE3C20094A549 /* RoomblrUtility.swift in Sources */,
 				4E9B2B681BCF09B000234A49 /* CollectionShuffle.swift in Sources */,
 				B5BA36D91BC33B2C00499FDF /* PostCell.swift in Sources */,

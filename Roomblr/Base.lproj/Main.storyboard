@@ -43,7 +43,7 @@
         <!--Roomates-->
         <scene sceneID="PqD-Cv-YGD">
             <objects>
-                <viewController id="3wY-R2-RxY" sceneMemberID="viewController">
+                <viewController id="3wY-R2-RxY" customClass="RoommatesViewController" customModule="Roomblr" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="Fpc-dK-I7s"/>
                         <viewControllerLayoutGuide type="bottom" id="nnc-xl-LCY"/>
@@ -60,7 +60,7 @@
                                         <rect key="frame" x="0.0" y="86" width="320" height="118"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="mru-wK-RaI" id="Qnu-He-pKZ">
-                                            <rect key="frame" x="0.0" y="0.0" width="320" height="117.5"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="320" height="118"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="b2w-HG-U4W">
@@ -141,7 +141,7 @@
                                         <rect key="frame" x="0.0" y="86" width="320" height="266"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="Rdf-EN-N0C" id="n3e-0j-TCT">
-                                            <rect key="frame" x="0.0" y="0.0" width="287" height="265.5"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="287" height="266"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="v8h-0c-jhA">
@@ -158,7 +158,7 @@
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="JimBobo" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ewh-EN-SKD">
-                                                    <rect key="frame" x="83" y="8" width="188" height="20.5"/>
+                                                    <rect key="frame" x="83" y="8" width="188" height="21"/>
                                                     <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="17"/>
                                                     <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                                     <nil key="highlightedColor"/>
@@ -189,7 +189,7 @@
                                                     </constraints>
                                                 </imageView>
                                                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="lYa-Sm-xPv">
-                                                    <rect key="frame" x="83" y="36.5" width="44" height="30"/>
+                                                    <rect key="frame" x="83" y="37" width="44" height="30"/>
                                                     <state key="normal" title="Follow">
                                                         <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                                     </state>
@@ -244,7 +244,7 @@
                         <leftBarButtonItems>
                             <barButtonItem title="Group" id="Umj-um-ZyG">
                                 <connections>
-                                    <segue destination="3wY-R2-RxY" kind="push" id="w6A-Sz-hos"/>
+                                    <segue destination="3wY-R2-RxY" kind="push" identifier="roomates" id="mUm-ak-FQI"/>
                                 </connections>
                             </barButtonItem>
                             <barButtonItem title="Logout" id="jtp-ex-Ldd">
@@ -412,7 +412,7 @@
                                 <rect key="frame" x="0.0" y="64" width="320" height="504"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Title" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="i1x-lB-p4Z">
-                                        <rect key="frame" x="20" y="30" width="36.5" height="20.5"/>
+                                        <rect key="frame" x="20" y="30" width="37" height="21"/>
                                         <fontDescription key="fontDescription" type="boldSystem" pointSize="17"/>
                                         <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                         <nil key="highlightedColor"/>
@@ -426,23 +426,23 @@
                                         <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                                     </textView>
                                     <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="4XC-cf-lbh">
-                                        <rect key="frame" x="89.5" y="296" width="222.5" height="30"/>
+                                        <rect key="frame" x="90" y="296" width="223" height="30"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                         <textInputTraits key="textInputTraits"/>
                                     </textField>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Tags" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Lns-0l-hE6">
-                                        <rect key="frame" x="20" y="300" width="39.5" height="20.5"/>
+                                        <rect key="frame" x="20" y="300" width="40" height="21"/>
                                         <fontDescription key="fontDescription" type="boldSystem" pointSize="17"/>
                                         <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="xL1-gO-uDc">
-                                        <rect key="frame" x="86" y="25" width="225.5" height="30"/>
+                                        <rect key="frame" x="86" y="25" width="226" height="30"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                         <textInputTraits key="textInputTraits"/>
                                     </textField>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="Please seperate with &quot;,&quot;. (eg: #dog, #cute)" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="szu-HK-mAC">
-                                        <rect key="frame" x="50" y="330.5" width="262" height="20.5"/>
+                                        <rect key="frame" x="50" y="331" width="262" height="21"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="13"/>
                                         <color key="textColor" red="0.40000000596046448" green="0.40000000596046448" blue="0.40000000596046448" alpha="1" colorSpace="calibratedRGB"/>
                                         <nil key="highlightedColor"/>

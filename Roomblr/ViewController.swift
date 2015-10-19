@@ -29,11 +29,20 @@ class ViewController: UIViewController {
                     User.currentUser = user
                     if error == nil {                                                
                         self.performSegueWithIdentifier("loginSegue", sender: self)
-                        ParseClient.sharedInstance.saveParseUserInfo(user, completion: { (error) -> () in
-                            if error != nil {
-                                print("ERROR: could not save parse user info")
+                        
+                        TumblrClient.sharedInstance.getBlogAvatar((User.currentUser?.blogName!)!, size: nil, completion: { (url, error) -> () in
+                            
+                            if error == nil {
+                                User.currentUser?.blogAvatarUrl = url
+                                ParseClient.sharedInstance.saveParseUserInfo(User.currentUser!, completion: { (error) -> () in
+                                    if error != nil {
+                                        print("ERROR: could not save parse user info")
+                                    }
+                                })
                             }
+                            
                         })
+                        
                     } else {
                         print("ERROR: DID NOT LOG IN PF USER")
                     }

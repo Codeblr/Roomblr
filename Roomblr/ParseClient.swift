@@ -138,6 +138,7 @@ class ParseClient {
         userInfo.blogName = user.blogName!
         userInfo.likes = user.likes!
         userInfo.following = user.following!
+        userInfo.blogAvatarUrl = user.blogAvatarUrl!
         
         userInfo.saveInBackgroundWithBlock { (completed: Bool, error: NSError?) -> Void in
             if completed {

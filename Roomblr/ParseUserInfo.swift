@@ -26,5 +26,6 @@ class ParseUserInfo: PFObject, PFSubclassing {
     @NSManaged var following: Int
     @NSManaged var likes: Int
     @NSManaged var blogName: String
+    @NSManaged var blogAvatarUrl: String
     
 }
