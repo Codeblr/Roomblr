@@ -10,6 +10,8 @@
 		17D115995B730F5BE8BF5393 /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 4A2A6BBF3032BAF0BB7D5DD9 /* libPods.a */; };
 		4E4E28231BBDE3C20094A549 /* RoomblrUtility.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E4E28221BBDE3C20094A549 /* RoomblrUtility.swift */; settings = {ASSET_TAGS = (); }; };
 		4E512AA71BC5D4BB002AB816 /* ParseUserInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E512AA61BC5D4BB002AB816 /* ParseUserInfo.swift */; settings = {ASSET_TAGS = (); }; };
+		4E9B2B661BCEFE0900234A49 /* ArraySlice.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E9B2B651BCEFE0900234A49 /* ArraySlice.swift */; settings = {ASSET_TAGS = (); }; };
+		4E9B2B681BCF09B000234A49 /* CollectionShuffle.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E9B2B671BCF09B000234A49 /* CollectionShuffle.swift */; settings = {ASSET_TAGS = (); }; };
 		4EB90C121BBB33C10019945E /* ParseClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4EB90C111BBB33C10019945E /* ParseClient.swift */; settings = {ASSET_TAGS = (); }; };
 		4EF82AC61BBCD065001DCC91 /* Post.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4EF82AC51BBCD065001DCC91 /* Post.swift */; settings = {ASSET_TAGS = (); }; };
 		9376EC101BB397B400289658 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9376EC0F1BB397B400289658 /* AppDelegate.swift */; };
@@ -40,6 +42,8 @@
 		4A2A6BBF3032BAF0BB7D5DD9 /* libPods.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPods.a; sourceTree = BUILT_PRODUCTS_DIR; };
 		4E4E28221BBDE3C20094A549 /* RoomblrUtility.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RoomblrUtility.swift; sourceTree = "<group>"; };
 		4E512AA61BC5D4BB002AB816 /* ParseUserInfo.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ParseUserInfo.swift; sourceTree = "<group>"; };
+		4E9B2B651BCEFE0900234A49 /* ArraySlice.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ArraySlice.swift; sourceTree = "<group>"; };
+		4E9B2B671BCF09B000234A49 /* CollectionShuffle.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CollectionShuffle.swift; sourceTree = "<group>"; };
 		4EB90C111BBB33C10019945E /* ParseClient.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ParseClient.swift; sourceTree = "<group>"; };
 		4EF82AC51BBCD065001DCC91 /* Post.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Post.swift; sourceTree = "<group>"; };
 		807C1E3F53D22F76A2DFC3E1 /* Pods.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.debug.xcconfig; path = "Pods/Target Support Files/Pods/Pods.debug.xcconfig"; sourceTree = "<group>"; };
@@ -80,6 +84,15 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		4E9B2B641BCEFDFE00234A49 /* Lib */ = {
+			isa = PBXGroup;
+			children = (
+				4E9B2B651BCEFE0900234A49 /* ArraySlice.swift */,
+				4E9B2B671BCF09B000234A49 /* CollectionShuffle.swift */,
+			);
+			name = Lib;
+			sourceTree = "<group>";
+		};
 		6149A2E4B38D4D8307B7FD73 /* Pods */ = {
 			isa = PBXGroup;
 			children = (
@@ -120,6 +133,7 @@
 		9376EC0C1BB397B400289658 /* Roomblr */ = {
 			isa = PBXGroup;
 			children = (
+				4E9B2B641BCEFDFE00234A49 /* Lib */,
 				9376EC0F1BB397B400289658 /* AppDelegate.swift */,
 				9376EC131BB397B400289658 /* Main.storyboard */,
 				B5BA36D71BC33B0700499FDF /* Views */,
@@ -339,10 +353,12 @@
 				4EF82AC61BBCD065001DCC91 /* Post.swift in Sources */,
 				9376EC121BB397B400289658 /* ViewController.swift in Sources */,
 				9376EC101BB397B400289658 /* AppDelegate.swift in Sources */,
+				4E9B2B661BCEFE0900234A49 /* ArraySlice.swift in Sources */,
 				B595B2A71BCB722300B3B4E9 /* WritePostViewController.swift in Sources */,
 				B5F7AAD81BB988F200F768D9 /* TumblrClient.swift in Sources */,
 				B5F7AADE1BB9A1BC00F768D9 /* GroupViewController.swift in Sources */,
 				4E4E28231BBDE3C20094A549 /* RoomblrUtility.swift in Sources */,
+				4E9B2B681BCF09B000234A49 /* CollectionShuffle.swift in Sources */,
 				B5BA36D91BC33B2C00499FDF /* PostCell.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
