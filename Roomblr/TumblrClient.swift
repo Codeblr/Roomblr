@@ -120,7 +120,9 @@ class TumblrClient: BDBOAuth1RequestOperationManager {
                 var i = 0
                 for (i; i < postsResponse.count; i++ ) {
                     var post = Post(dic: postsResponse[i] as! NSDictionary)
-                    posts.append(post)
+                    if post.type == "text" || post.type == "photo" {
+                        posts.append(post)
+                    }
                 }
                 completion(posts: posts, error: nil)
             
