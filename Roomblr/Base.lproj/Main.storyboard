@@ -40,7 +40,7 @@
             </objects>
             <point key="canvasLocation" x="-373" y="292"/>
         </scene>
-        <!--Roomates-->
+        <!--Roommates-->
         <scene sceneID="PqD-Cv-YGD">
             <objects>
                 <viewController id="3wY-R2-RxY" customClass="RoommatesViewController" customModule="Roomblr" customModuleProvider="target" sceneMemberID="viewController">
@@ -60,7 +60,7 @@
                                         <rect key="frame" x="0.0" y="86" width="320" height="118"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="mru-wK-RaI" id="Qnu-He-pKZ">
-                                            <rect key="frame" x="0.0" y="0.0" width="320" height="118"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="320" height="117.5"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="UsermanDude" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="5tS-mr-wBp">
@@ -114,7 +114,7 @@
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
-                    <navigationItem key="navigationItem" title="Roomates" id="vXF-7Q-28A"/>
+                    <navigationItem key="navigationItem" title="Roommates" id="vXF-7Q-28A"/>
                     <connections>
                         <outlet property="tableView" destination="ALO-Yq-nNS" id="n5Q-6T-NWK"/>
                     </connections>
@@ -123,7 +123,7 @@
             </objects>
             <point key="canvasLocation" x="834" y="-206"/>
         </scene>
-        <!--Group-->
+        <!--Group View Controller-->
         <scene sceneID="GKi-m9-bUK">
             <objects>
                 <viewController id="BgL-f7-7vm" customClass="GroupViewController" customModule="Roomblr" customModuleProvider="target" sceneMemberID="viewController">
@@ -143,7 +143,7 @@
                                         <rect key="frame" x="0.0" y="86" width="320" height="266"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="Rdf-EN-N0C" id="n3e-0j-TCT">
-                                            <rect key="frame" x="0.0" y="0.0" width="287" height="266"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="287" height="265.5"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="v8h-0c-jhA">
@@ -242,9 +242,9 @@
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
-                    <navigationItem key="navigationItem" title="Group" id="k8F-E5-3fV">
+                    <navigationItem key="navigationItem" id="k8F-E5-3fV">
                         <leftBarButtonItems>
-                            <barButtonItem title="Group" id="Umj-um-ZyG">
+                            <barButtonItem title="Roommates" id="Umj-um-ZyG">
                                 <connections>
                                     <segue destination="3wY-R2-RxY" kind="push" identifier="roomates" id="mUm-ak-FQI"/>
                                 </connections>
@@ -255,7 +255,7 @@
                                 </connections>
                             </barButtonItem>
                         </leftBarButtonItems>
-                        <barButtonItem key="rightBarButtonItem" title="New Post" id="fmk-z6-A50">
+                        <barButtonItem key="rightBarButtonItem" title="New" id="fmk-z6-A50">
                             <connections>
                                 <segue destination="1Sr-n3-bfw" kind="modal" identifier="reblog" id="q30-3j-am6"/>
                             </connections>
