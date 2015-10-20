@@ -48,6 +48,14 @@ class Post: NSObject {
                     photoRatio =  (width / height) as! Double
                 }
             }
+            
+            if photoUrl == nil {
+                var photo = altSizes[0]
+                var width = photo["width"] as! Double
+                var height = photo["height"] as! Double
+                photoUrl = photo["url"] as! String
+                photoRatio =  (width / height) as! Double
+            }
         } else if type == "text" {
             body = dic["body"] as! String
         }
