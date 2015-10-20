@@ -234,7 +234,7 @@
                                             <outlet property="photoImageViewHeightConstraint" destination="dMf-yS-sw9" id="3Wi-RU-y2K"/>
                                             <outlet property="photoView" destination="Wfu-zH-OER" id="HYN-d1-9G5"/>
                                             <outlet property="postBodyLabel" destination="4b2-5J-auj" id="FUZ-Wj-H6D"/>
-                                            <segue destination="8ZQ-nZ-h8N" kind="push" id="N6I-YN-nUU"/>
+                                            <segue destination="8ZQ-nZ-h8N" kind="push" identifier="detailsSegue" id="N6I-YN-nUU"/>
                                         </connections>
                                     </tableViewCell>
                                 </prototypes>
@@ -269,10 +269,10 @@
             </objects>
             <point key="canvasLocation" x="479" y="292"/>
         </scene>
-        <!--View Controller-->
+        <!--Post Details View Controller-->
         <scene sceneID="HWB-kd-CQ0">
             <objects>
-                <viewController id="8ZQ-nZ-h8N" sceneMemberID="viewController">
+                <viewController id="8ZQ-nZ-h8N" customClass="PostDetailsViewController" customModule="Roomblr" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="QM0-aE-Tv9"/>
                         <viewControllerLayoutGuide type="bottom" id="e39-5R-pFw"/>
@@ -281,8 +281,8 @@
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="From Saving Private Ryan, Interstellar, and now The Martian, America has spent a lot of money trying to retrieve Matt Damon." lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="FL6-oi-dr3">
-                                <rect key="frame" x="8" y="169" width="304" height="82"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="From Saving Private Ryan, Interstellar, and now The Martian, America has spent a lot of money trying to retrieve Matt Damon." lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="FL6-oi-dr3">
+                                <rect key="frame" x="8" y="169" width="304" height="205"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
@@ -294,13 +294,6 @@
                                     <constraint firstAttribute="width" constant="92" id="iIG-Qm-n95"/>
                                 </constraints>
                             </imageView>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Tumblr_Reblog_Like.png" translatesAutoresizingMaskIntoConstraints="NO" id="XNA-Bw-9mI">
-                                <rect key="frame" x="245" y="255" width="67" height="31"/>
-                                <constraints>
-                                    <constraint firstAttribute="width" constant="67" id="Imw-oZ-of3"/>
-                                    <constraint firstAttribute="height" constant="30.5" id="zbP-Vh-se5"/>
-                                </constraints>
-                            </imageView>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="fRu-JH-gfI">
                                 <rect key="frame" x="108" y="87" width="45" height="30"/>
                                 <state key="normal" title="Follow">
@@ -308,14 +301,8 @@
                                 </state>
                             </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="JimBobo" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="WJ9-bA-tIh">
-                                <rect key="frame" x="108" y="72" width="84" height="21"/>
+                                <rect key="frame" x="108" y="72" width="192" height="21"/>
                                 <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="17"/>
-                                <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="3 roommates reblogged this" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="IxH-Fl-A6W">
-                                <rect key="frame" x="16" y="527" width="216" height="21"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
@@ -328,25 +315,27 @@
                                     <segue destination="1Sr-n3-bfw" kind="push" id="dyR-Ge-hyh"/>
                                 </connections>
                             </button>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="7 roommates liked this" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ikg-SI-TQ1">
-                                <rect key="frame" x="16" y="498" width="174" height="21"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
-                                <nil key="highlightedColor"/>
-                            </label>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="z2S-tP-rk5">
+                                <rect key="frame" x="10" y="172" width="290" height="202"/>
+                            </imageView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
                             <constraint firstItem="RAT-V0-Qbh" firstAttribute="leading" secondItem="mY3-ZN-wgU" secondAttribute="leading" constant="8" id="35A-7a-Oq5"/>
-                            <constraint firstAttribute="trailing" secondItem="XNA-Bw-9mI" secondAttribute="trailing" constant="8" id="EyP-QL-vxM"/>
                             <constraint firstItem="RAT-V0-Qbh" firstAttribute="top" secondItem="QM0-aE-Tv9" secondAttribute="bottom" constant="8" id="Oy9-qW-fJk"/>
                             <constraint firstItem="FL6-oi-dr3" firstAttribute="leading" secondItem="mY3-ZN-wgU" secondAttribute="leading" constant="8" id="VQI-wB-FRS"/>
                             <constraint firstItem="FL6-oi-dr3" firstAttribute="top" secondItem="RAT-V0-Qbh" secondAttribute="bottom" constant="5" id="Wf5-xm-CdR"/>
-                            <constraint firstItem="XNA-Bw-9mI" firstAttribute="top" secondItem="FL6-oi-dr3" secondAttribute="bottom" constant="5" id="cG4-Px-Wqs"/>
                             <constraint firstAttribute="trailing" secondItem="FL6-oi-dr3" secondAttribute="trailing" constant="8" id="xWC-ux-Kb8"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="BGJ-jm-uRD"/>
+                    <connections>
+                        <outlet property="blogAvatarImage" destination="RAT-V0-Qbh" id="XUt-27-a4n"/>
+                        <outlet property="blogNameLabel" destination="WJ9-bA-tIh" id="rg5-Y1-br0"/>
+                        <outlet property="followButton" destination="fRu-JH-gfI" id="yeN-ZA-5bR"/>
+                        <outlet property="postImage" destination="z2S-tP-rk5" id="TPt-hh-73c"/>
+                        <outlet property="textPostLabel" destination="FL6-oi-dr3" id="88a-yt-sXA"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="bvx-Tq-zei" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -576,11 +565,10 @@
         </scene>
     </scenes>
     <resources>
-        <image name="Tumblr_Reblog_Like.png" width="113" height="67"/>
         <image name="like" width="33" height="33"/>
         <image name="reblog" width="33" height="33"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="q30-3j-am6"/>
+        <segue reference="dyR-Ge-hyh"/>
     </inferredMetricsTieBreakers>
 </document>
