@@ -60,7 +60,7 @@
                                         <rect key="frame" x="0.0" y="86" width="320" height="118"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="mru-wK-RaI" id="Qnu-He-pKZ">
-                                            <rect key="frame" x="0.0" y="0.0" width="320" height="117.5"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="320" height="118"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="b2w-HG-U4W">
@@ -141,7 +141,7 @@
                                         <rect key="frame" x="0.0" y="86" width="320" height="266"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="Rdf-EN-N0C" id="n3e-0j-TCT">
-                                            <rect key="frame" x="0.0" y="0.0" width="287" height="265.5"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="287" height="266"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="v8h-0c-jhA">
@@ -158,7 +158,7 @@
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="JimBobo" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ewh-EN-SKD">
-                                                    <rect key="frame" x="83" y="8" width="188" height="20.5"/>
+                                                    <rect key="frame" x="83" y="8" width="188" height="21"/>
                                                     <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="17"/>
                                                     <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                                     <nil key="highlightedColor"/>
@@ -189,7 +189,7 @@
                                                     </constraints>
                                                 </imageView>
                                                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="lYa-Sm-xPv">
-                                                    <rect key="frame" x="83" y="36.5" width="44" height="30"/>
+                                                    <rect key="frame" x="83" y="37" width="44" height="30"/>
                                                     <state key="normal" title="Follow">
                                                         <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                                     </state>
@@ -232,7 +232,6 @@
                                             <outlet property="photoImageViewHeightConstraint" destination="dMf-yS-sw9" id="3Wi-RU-y2K"/>
                                             <outlet property="photoView" destination="Wfu-zH-OER" id="HYN-d1-9G5"/>
                                             <outlet property="postBodyLabel" destination="4b2-5J-auj" id="FUZ-Wj-H6D"/>
-                                            <segue destination="8ZQ-nZ-h8N" kind="push" id="N6I-YN-nUU"/>
                                         </connections>
                                     </tableViewCell>
                                 </prototypes>
@@ -266,89 +265,6 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="3Vw-4o-eWw" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="479" y="292"/>
-        </scene>
-        <!--View Controller-->
-        <scene sceneID="HWB-kd-CQ0">
-            <objects>
-                <viewController id="8ZQ-nZ-h8N" sceneMemberID="viewController">
-                    <layoutGuides>
-                        <viewControllerLayoutGuide type="top" id="QM0-aE-Tv9"/>
-                        <viewControllerLayoutGuide type="bottom" id="e39-5R-pFw"/>
-                    </layoutGuides>
-                    <view key="view" contentMode="scaleToFill" id="mY3-ZN-wgU">
-                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
-                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <subviews>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="From Saving Private Ryan, Interstellar, and now The Martian, America has spent a lot of money trying to retrieve Matt Damon." lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="FL6-oi-dr3">
-                                <rect key="frame" x="8" y="169" width="304" height="82"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="RAT-V0-Qbh">
-                                <rect key="frame" x="8" y="72" width="92" height="92"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="92" id="0KL-ii-g02"/>
-                                    <constraint firstAttribute="width" constant="92" id="iIG-Qm-n95"/>
-                                </constraints>
-                            </imageView>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Tumblr_Reblog_Like.png" translatesAutoresizingMaskIntoConstraints="NO" id="XNA-Bw-9mI">
-                                <rect key="frame" x="245" y="255" width="67" height="31"/>
-                                <constraints>
-                                    <constraint firstAttribute="width" constant="67" id="Imw-oZ-of3"/>
-                                    <constraint firstAttribute="height" constant="30.5" id="zbP-Vh-se5"/>
-                                </constraints>
-                            </imageView>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="fRu-JH-gfI">
-                                <rect key="frame" x="108" y="87" width="45" height="30"/>
-                                <state key="normal" title="Follow">
-                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
-                                </state>
-                            </button>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="JimBobo" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="WJ9-bA-tIh">
-                                <rect key="frame" x="108" y="72" width="84" height="21"/>
-                                <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="17"/>
-                                <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="3 roommates reblogged this" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="IxH-Fl-A6W">
-                                <rect key="frame" x="16" y="527" width="216" height="21"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="gPT-xe-qxq">
-                                <rect key="frame" x="245" y="255" width="30" height="30"/>
-                                <state key="normal">
-                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
-                                </state>
-                                <connections>
-                                    <segue destination="1Sr-n3-bfw" kind="push" id="dyR-Ge-hyh"/>
-                                </connections>
-                            </button>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="7 roommates liked this" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ikg-SI-TQ1">
-                                <rect key="frame" x="16" y="498" width="174" height="21"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                        </subviews>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                        <constraints>
-                            <constraint firstItem="RAT-V0-Qbh" firstAttribute="leading" secondItem="mY3-ZN-wgU" secondAttribute="leading" constant="8" id="35A-7a-Oq5"/>
-                            <constraint firstAttribute="trailing" secondItem="XNA-Bw-9mI" secondAttribute="trailing" constant="8" id="EyP-QL-vxM"/>
-                            <constraint firstItem="RAT-V0-Qbh" firstAttribute="top" secondItem="QM0-aE-Tv9" secondAttribute="bottom" constant="8" id="Oy9-qW-fJk"/>
-                            <constraint firstItem="FL6-oi-dr3" firstAttribute="leading" secondItem="mY3-ZN-wgU" secondAttribute="leading" constant="8" id="VQI-wB-FRS"/>
-                            <constraint firstItem="FL6-oi-dr3" firstAttribute="top" secondItem="RAT-V0-Qbh" secondAttribute="bottom" constant="5" id="Wf5-xm-CdR"/>
-                            <constraint firstItem="XNA-Bw-9mI" firstAttribute="top" secondItem="FL6-oi-dr3" secondAttribute="bottom" constant="5" id="cG4-Px-Wqs"/>
-                            <constraint firstAttribute="trailing" secondItem="FL6-oi-dr3" secondAttribute="trailing" constant="8" id="xWC-ux-Kb8"/>
-                        </constraints>
-                    </view>
-                    <navigationItem key="navigationItem" id="BGJ-jm-uRD"/>
-                </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="bvx-Tq-zei" userLabel="First Responder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="982" y="532"/>
         </scene>
         <!--Write Post View Controller-->
         <scene sceneID="Yse-mC-fVz">
@@ -412,7 +328,7 @@
                                 <rect key="frame" x="0.0" y="64" width="320" height="504"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Title" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="i1x-lB-p4Z">
-                                        <rect key="frame" x="20" y="30" width="36.5" height="20.5"/>
+                                        <rect key="frame" x="20" y="30" width="37" height="21"/>
                                         <fontDescription key="fontDescription" type="boldSystem" pointSize="17"/>
                                         <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                         <nil key="highlightedColor"/>
@@ -426,23 +342,23 @@
                                         <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                                     </textView>
                                     <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="4XC-cf-lbh">
-                                        <rect key="frame" x="89.5" y="296" width="222.5" height="30"/>
+                                        <rect key="frame" x="90" y="296" width="223" height="30"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                         <textInputTraits key="textInputTraits"/>
                                     </textField>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Tags" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Lns-0l-hE6">
-                                        <rect key="frame" x="20" y="300" width="39.5" height="20.5"/>
+                                        <rect key="frame" x="20" y="300" width="40" height="21"/>
                                         <fontDescription key="fontDescription" type="boldSystem" pointSize="17"/>
                                         <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="xL1-gO-uDc">
-                                        <rect key="frame" x="86" y="25" width="225.5" height="30"/>
+                                        <rect key="frame" x="86" y="25" width="226" height="30"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                         <textInputTraits key="textInputTraits"/>
                                     </textField>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="Please seperate with &quot;,&quot;. (eg: #dog, #cute)" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="szu-HK-mAC">
-                                        <rect key="frame" x="50" y="330.5" width="262" height="20.5"/>
+                                        <rect key="frame" x="50" y="331" width="262" height="21"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="13"/>
                                         <color key="textColor" red="0.40000000596046448" green="0.40000000596046448" blue="0.40000000596046448" alpha="1" colorSpace="calibratedRGB"/>
                                         <nil key="highlightedColor"/>
@@ -574,11 +490,7 @@
         </scene>
     </scenes>
     <resources>
-        <image name="Tumblr_Reblog_Like.png" width="113" height="67"/>
         <image name="like" width="33" height="33"/>
         <image name="reblog" width="33" height="33"/>
     </resources>
-    <inferredMetricsTieBreakers>
-        <segue reference="q30-3j-am6"/>
-    </inferredMetricsTieBreakers>
 </document>
