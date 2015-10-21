@@ -132,6 +132,9 @@ class RoomblrUtility {
         for tag in topTags {
             tags.append(tag.0)
         }
+        print("TAGS:")
+        print(tags)
+        print("\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n")
         
         return tags
     }
