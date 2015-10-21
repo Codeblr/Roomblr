@@ -106,10 +106,15 @@ class GroupViewController: UIViewController, UITableViewDataSource, UITableViewD
                     if let post = sender as? Post {
                         vc.rebloggedPost = post
                     }
-                    
                 }
             }
             
+        } else if segue.identifier == "detailsSegue" {
+            let cell = sender as! UITableViewCell
+            let indexPath = tableView.indexPathForCell(cell)!
+            let post = posts[indexPath.row]
+            let postDetailsViewController = segue.destinationViewController as! PostDetailsViewController
+            postDetailsViewController.post = post
         }
     }
 
